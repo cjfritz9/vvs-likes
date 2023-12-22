@@ -1,0 +1,12 @@
+.terms-content li {
+    color: #6B7175;
+}
+.terms-content p {
+    color: #6B7175;
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 400;
+}
+.terms-content {
+    padding: 0px 25px !important;
+}

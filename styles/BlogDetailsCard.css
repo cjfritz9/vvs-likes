@@ -1,0 +1,150 @@
+.blogDetails-section4{
+    background-color: #F3F7FC;
+  
+    padding: 24px, 32px, 24px, 32px;
+    border-radius: 10px;
+    gap: 10px;
+}
+
+
+.blogDetails-section4{
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.blogDetails-section4 h4{
+ 
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;    
+}
+
+.blogDetails-section4 p{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#6B7175;
+    padding-top: 10px;
+}
+
+
+.blogDetails-section3{
+    padding: 20px;
+}
+
+.blog-details-card-heading h1{
+    text-transform: capitalize;
+    font-family: Outfit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#02111B;
+}
+
+.blogDetails-section3 p{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color:#6B7175;
+}
+
+.blogDetails-section2 p{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color:#6B7175;
+}
+
+.blogDetails-section2{
+    padding: 20px;
+}
+
+.blog-details-card-heading h1{
+    text-transform: capitalize;
+    font-family: Outfit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#02111B;
+}
+
+
+.blogDetails-section1 p{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #6B7175;
+}
+
+.blogDetails-section1 h4{
+    text-align: left;
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+
+}
+
+.blog-details-card-heading h1{
+    text-transform: capitalize;
+    font-family: Outfit;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.blogDetails-section1{
+    padding: 20px;
+}
+
+
+.blog-details-tray {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    padding: 30px 0px 0px 0px;
+}
+
+.blog-details-tray div{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+@media (max-width: 1024px) {
+.blog-details-tray {
+    gap: 30px;
+ }
+ }
+ @media (max-width: 767px) {
+    .blog-details-tray {
+        gap: 0px;
+        flex-direction: column;
+        }
+        .blogDetails-section1, .blogDetails-section2, .blogDetails-section3 {
+            padding: 0xp;
+        }
+  }

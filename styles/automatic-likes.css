@@ -1,0 +1,274 @@
+.never-wait {
+    padding: 50px;
+}
+.insta_posts_outer {
+    padding: 60px 30px;
+    position: relative;
+}
+.never-wait .insta_posts_outer h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #02111B;
+}
+.never-wait .insta_posts_outer p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #6B7175;
+}
+.packages {
+    display: flex;
+    justify-content: end;
+    gap: 57px;
+    padding-bottom: 8px;
+}
+.likes-button {
+    display: flex;
+    gap: 57px;
+}
+.mobile_flex {
+    align-items: baseline !important;
+}
+
+.experience {
+    padding: 50px 135px !important;
+}
+.experience-inner {
+    padding: 60px 180px;
+}
+.experience-inner .col-md-6.mb-3 {
+    width: 100% !important;
+}
+.like-btn {
+    text-align: left;
+}
+.like-btn input.form-control {
+    background-color: #0D57C60D;
+}
+.automatic-likes-heading h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #02111B;
+}
+.mobile_flex {
+    align-items: baseline !important;
+}
+
+.experience-likes h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 40px;
+    color: #02111B;
+}
+.experience-likes p {
+    font-size: 14px;
+    width: 496px;
+    text-align: center;
+    margin: auto;
+}
+.experience-form {
+    width: 670px;
+    margin: auto;
+}
+.name-field, .mail-field {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 600;
+    color: #02111B;
+    margin-bottom: 24px;
+}
+.name-field  input.form-control, .mail-field input.form-control {
+    background-color: #0D57C60D;
+    border-radius: 10px;
+    border: none;
+}
+.experience-form button.btn.text-white {
+    width: 224px;
+    float: left;
+}
+.spacing_likes {
+    padding: 50px 105px !important;
+}
+.badge-pill {
+    position: relative;
+}
+span.badge.rounded-pill.pill-above {
+    border-radius: 10px !important;
+    position: absolute;
+    top: -22px;
+    left: 55px;
+}
+.gift-box {
+    position: absolute;
+    right: -100px;
+    top: 75px;
+}
+.bell {
+    position: absolute;
+    bottom: 1px;
+    right: -10px;
+}
+.experience-form-cntnt input.form-control::placeholder {
+    color: #6B7175;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+    .insta_posts_outer {
+        padding: 60px 5%;
+    }
+    .spacing_likes {
+        padding: 40px !important;
+    }
+    .automatic-likes {
+        padding: 40px !important;
+    }
+    .gift-box img {
+        width: 70%;
+    }
+    .gift-box {
+        top: 100px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .automatic-likes {
+        padding: 40px !important;
+    }
+    .container {
+        max-width: 920px !important;
+    }
+    .insta_posts_outer {
+        padding: 60px 2%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .insta_posts_outer {
+        padding: 60px 2%;
+    }
+    .packages {
+        gap: 40px;
+    }
+    /* .spacing_likes {
+        padding: 20px !important;
+    } */
+    /* .packages {
+        justify-content: center !important;
+    } */
+    .experience-form {
+        width: auto;
+    }
+    .experience-likes {
+        padding: 40px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* .spacing_likes {
+        padding: 20px !important;
+    } */
+    .packages {
+        justify-content: center !important;
+    }
+    .automatic-likes {
+        padding: 20px !important;
+    }
+    .insta_posts_outer, .subscriptionPlanTable, .content1, .free-automatic-likes-content, .card_block, .content_wrap {
+        padding: 10px;
+    }
+    .experience-likes {
+        padding: 20px !important;
+    }
+    .experience-likes p {
+        width: auto;
+    }
+    .experience-form .experience-form-cntnt {
+        padding: 20px 10px !important;
+    }
+    span.badge.rounded-pill.pill-above {
+        top: -19px;
+        left: 48px;
+        padding: 5px !important;
+    }
+    .gift-box img {
+        width: 60%;
+    }
+    .bell img {
+        width: 70%;
+    }
+    .bell {
+        right: -20px;
+    }
+    
+}
+
+@media screen and (max-width: 425px){
+    .gift-box {
+        top: 115px;
+    }
+    .bell {
+        right: -25px;
+    }
+    .bell img {
+        width: 50%;
+    }
+}
+
+
+@media screen and (max-width: 375px) {
+    .insta_posts_outer, .subscriptionPlanTable, .content1, .free-automatic-likes-content, .card_block, .content_wrap {
+        padding: 10px !important;
+    }
+    .automatic-likes {
+        padding: 10px !important;
+    }
+    span.badge.rounded-pill.pill-above {
+        top: -13px;
+        left: 43px;
+        padding: 5px !important;
+    }
+    .spacing_likes {
+        padding: 30px !important;
+    }
+    .gift-box img {
+        width: 50%;
+    }
+    .gift-box {
+        top: 120px;
+    }
+    .bell {
+        right: -33px;
+    }
+    .bell img {
+        width: 35%;
+    }
+
+}
+@media screen and (max-width: 320px) {
+    .automatic-likes {
+        padding: 10px !important;
+    }
+    .bg-white.spacing_likes {
+        padding: 10px !important;
+    }
+    :root .reallike-accordion button.accordion-button:before {
+        top: 54px;
+    }
+    .packages {
+        gap: 20px;
+    }
+    .gift-box {
+        right: -90px;
+        top: 148px;
+    }
+    .gift-box img {
+        width: 40%;
+    }
+    .bell {
+        right: -35px;
+    }
+    .bell img {
+        width: 24%;
+    }
+}

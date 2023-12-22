@@ -1,0 +1,485 @@
+.billing{
+    background-color: #0D57C6;
+}
+
+.billing .left_wrap{
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    height: fit-content;
+    padding:20px;
+    margin-bottom: 20px;
+}
+
+.payment_side {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 25px;
+    height: fit-content;
+}
+.back_button {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.col-style-1 {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.col-style-1 h4{
+    font-family: Outfit;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#181A1C;
+}
+
+
+.billing .confirm-order {
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #02111B;
+    padding: 0px;
+    padding: 13px 10px;
+}
+.main_wrap {
+    border: 1px solid #ececec;
+    border-right: none;
+    border-left: none;
+    padding: 20px 0px;
+}
+.heart_icon{
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 19px -3px gray;
+}
+.billing .col-style-2 {
+    display: flex;
+    align-content: center;
+    gap: ;
+    justify-content: space-between;
+    width: 100%;
+}
+.total_count {
+    padding: 20px 10px;
+}
+.billing .col-style-2 h2{
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#02111B;
+}
+
+
+/* radio button css */
+#wrapper {
+    height: 200px;
+    width: 400px;
+    background: white;
+    left: 50%;
+  }
+  
+  /* label container */
+  .radio-button-container {
+    display: flex;
+    flex-direction: column;
+    /* display: block; */
+    position: relative;
+    /* padding-left: 40px; */
+    line-height: 25px;
+    /* margin-bottom: 12px; */
+    /* margin-left: 30px; */
+    cursor: pointer;
+    font-size: 18px;
+    /* -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; */
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .radio-button-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 25px;
+    /* background-color: rgba(0,0,0,0); */
+    border-radius: 50%;
+    /* border: 2px solid rgba(0,0,0,0.25); */
+  /*   transition: all 0.3s; */
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .radio-button-container:hover input ~ .checkmark {
+    border-color: rgba(0,0,0,0.5);
+  } */
+  
+  /* When the radio button is checked */
+  .radio-button-container input:checked ~ .checkmark {
+    /* background-color: rgba(0,0,0,0); */
+    border-color: #03C95A;
+  }
+  
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .radio-button-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  
+  /* Style the indicator (dot/circle) */
+  .radio-button-container .checkmark:after {
+       top: 4px;
+      left: 4px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #03C95A;
+  }
+
+/* radio button css */
+
+.billing .col-style-5 {
+    padding: 1rem 0px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.billing .links div {
+    display: flex;
+    gap: 1rem;
+    padding: 10px;
+    align-items: start;
+    justify-content: flex-start;
+}
+
+.billing .links p{
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #02111B;  
+    margin-bottom: 0px;  
+}
+
+
+.col-style-4 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0px;
+}
+
+.billing .apply-coupon-btn{
+    width: 100%;
+    height: 50px;
+    padding: 17px, 101px, 17px, 101px;
+    border-radius: 253px;
+    gap: 10px;
+    background: #FACC05;
+    border:none;
+    color: #0D57C6;
+    font-family: Outfit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.col-style-4 p{
+    font-family: Outfit;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #02111B;
+    margin-bottom: 0px;
+}
+
+.col-style-4 input{
+    padding: 10px;
+    border-radius: 10px;
+    border-color: #0D57C6;
+}
+
+
+/* .billing .col-7{
+    padding:1rem;
+} */
+
+.col-7 h2{
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+
+.billing .col-7-btn{
+    width: 100%;
+    height: 64px;
+    padding: 24px, 302px, 24px, 302px;
+    border-radius: 253px;
+    gap: 10px;
+    background: #FF3E6C;
+    border:none;
+    color: #FFFFFF;
+    font-family: Outfit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0.02em;
+    text-align: center;
+
+}
+p.billing_dis {
+    margin: 22px 0px;
+    color: #02111B;
+    text-align: left;
+    opacity: 60%;
+}
+.billing .col-7 p{
+    font-family: Outfit;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #6B7175;   
+    padding:1rem;  
+}
+
+/* -------------- */
+
+.billing .card-options{
+    /* height: 150px; */
+    width: 130px;
+    display:flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    justify-content:end ;
+}
+
+
+.billing .card-options img{
+    /* height: 50%; */
+    width: 30%;
+    gap:2px;
+}
+
+.col-7 .header{
+    display:flex;
+    justify-content: space-between;
+}
+
+/* FORM */
+
+.card {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    border-radius: 20 px;
+}
+
+p {
+    margin: 0px;
+}
+
+.container .h8 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+}
+
+.btn.btn-primary {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+}
+
+
+.btn.btn.btn-primary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.btn.btn-primary:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in;
+}
+
+.form-control {
+    color: white;
+    border: 1px solid #0D57C6;
+    height: 60px;
+    padding-left: 20px;
+    vertical-align: middle;
+}
+
+
+
+.text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+::placeholder {
+    font-size: 14px;
+    font-weight: 600;
+    color:#6B7175;
+}
+
+
+p.text.mb-1 {
+    text-align: left;
+    padding: 10px;
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color:#181A1C;
+}
+
+.col-style-3 .div2{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.col-style-3 .div2 .save20 {
+    background-color: #fff;
+    color: rgb(3, 201, 90);
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 13px;
+    align-items: center;
+    border-radius: 20px;
+    gap: 10px;
+    height: 30px;
+    width: 87px;
+    margin: auto;
+    padding: 9px 10px;
+    cursor: pointer;
+}
+.col-style-3 .div3 {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #03C95A;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 40px;
+    line-height: 28px;
+}
+.col-style-3 .div3 strong {
+    font-weight: 100;
+}
+
+.col-style-3 {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #03C95A;
+    border-radius: 20px;
+    color: #fff;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+.radio_input{
+    width: 40px;
+    height: 40px;
+    accent-color: #00a749;
+}
+.back_button {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    cursor:pointer;
+}
+
+.payment_side .header {
+    display: flex;
+    justify-content: space-between;
+}
+.payment_side .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+h2.payment_title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: -webkit-left;
+}
+h2.payment_title.billing_add {
+    margin-top: 28px;
+}
+@media screen and (max-width: 1030px) {
+    .payment_side {
+        padding: 20px 10px;
+    }
+    .billing .form-control {
+        height: 45px;
+        margin-bottom: 10px;
+    }
+    .featured-in-blog-section .container{
+        gap: 0px;
+    }
+}

@@ -1,0 +1,63 @@
+
+@media screen and (max-width: 1024px){
+
+    .col.footer-end {
+        gap: 20px !important;
+        margin-top: 5px !important;
+        height: max-content;
+    }
+
+}
+
+
+@media screen and (max-width: 992px){
+
+    .get-like p.text-start.text-white {
+        padding-right: 3px !important;
+    }
+    .mail-btn{
+        top: 60px !important;
+    }
+    .col.footer-end {
+        flex-wrap: wrap;
+    }
+    .abc {
+        height: auto !important;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+    .abc .row.row-cols-5 {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .col.footer-end {
+        flex-wrap: wrap;
+        height: max-content;
+        gap: 30px !important;
+    }
+    .col.card-icon {
+        padding-left: 3px;
+    }
+    .get-like h1.text-start.text-white {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 480px){
+    .row-cols-5 .col {
+        width: 33%;
+    }
+    .col.footer-end {
+        width: 100% !important;
+    }
+    .support p {
+        font-size: 16px !important;
+    }
+    .col-6.get-like, .mail-btn {
+        width: 100% !important;
+    }
+    button#button-addon2 {
+        top: 10px !important;
+    }
+}

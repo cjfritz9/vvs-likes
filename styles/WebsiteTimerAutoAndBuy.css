@@ -1,0 +1,94 @@
+.content1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 60px 40px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    border: 2px solid #B7CDEE;
+}
+
+.content1 h1 {
+    color: #FF3E6C;
+    font-weight: bold;
+}
+
+.content1 .p1 {
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #02111B;
+}
+
+.content1 .p2 {
+    font-family: Outfit;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #02111B;
+}
+
+.content1 .p3 {
+    font-family: Outfit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: center;
+    max-width: 550px;
+    margin: auto;
+    width: 100%;
+    color: #6B7175;
+}
+
+.customer-rating-section {
+    display: flex;
+    gap: 10rem;
+    align-items: flex-start;
+    padding-left: 40px;
+}
+
+.customer-rating-section .rating {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.customer-rating-section .rating .stars {
+    display: flex;
+    gap: 2px;
+}
+
+.customer-rating-section .rating-text {
+    font-family: Outfit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #02111B;
+}
+
+.customer-rating-section .images {
+    position: relative;
+}
+@media screen and (max-width: 375px){
+    .customer-rating-section {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .customer-rating-section .rating {
+        margin-top: 30px;
+    }
+    .customer-rating-section .images {
+        position: relative;
+        float: left;
+        width: 100%;
+    }
+}

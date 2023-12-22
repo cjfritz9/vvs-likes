@@ -1,0 +1,66 @@
+.faq-accordion .accordion-item .accordion-button.collapsed {
+    color: black;
+    background-color: #EAF0F8;
+}
+.faq-accordion .accordion-item .accordion-button {
+  color: #FFFFFF;
+  background-color: #0D57C6;
+  box-shadow: none;
+  font-weight: 500;
+  font-size: 18px;
+  height: 64px;
+  justify-content: space-between;
+}
+.faq-accordion .accordion-item {
+  margin-bottom: 18px;
+}
+.faq-accordion .accordion-body {
+    background-color: #0D57C6;
+    color: #FFFFFFCC;
+    text-align: left;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 16px;
+ 
+}
+.accordion-button:focus {
+    box-shadow: none !important;
+}
+.faq-main h1.text-center.heading {
+    font-size: 36px;
+    font-weight: 600;
+    color: #02111B;
+    line-height: 36px;
+}
+.faq-main .accordion {
+    gap: 18px;
+}
+.faq-main p.fw-normal.text-base {
+    font-size: 16px;
+    line-height: 28px;
+    color: #6B7175;
+    font-weight: 700;
+}
+.faq-main .faq-accordion button.accordion-button.collapsed {
+    color: #02111B;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    justify-content: space-between;
+}
+.faq-main .accordion-item {
+    border: none;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+.accordion-button:not(.collapsed) path {
+    fill: #fff;
+}
+@media screen and (max-width: 480px) {
+    .faq-main .faq-2 {
+        margin-top: 30px !important;
+    }
+    button.btn.text-white {
+        font-size: 12px;
+        padding: 10px !important;
+    }
+}
