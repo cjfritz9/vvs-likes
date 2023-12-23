@@ -1,10 +1,12 @@
-import { useState } from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import PackageList from '@/components/package_list';
-// import axios from "axios";
+import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, ToastContainer, toast } from 'react-toastify';
-// import { executeRecaptcha } from "../../../recaptchaService";
-// import { apiBaseUrl } from "src/App";
+import { apiBaseUrl } from '@/lib/utils';
+import { useReCaptcha } from 'next-recaptcha-v3';
 
 export interface IFreeTrial {
   success: boolean;
@@ -66,6 +68,8 @@ const RealInstagramLikes = (props: IProps) => {
   // const [isLoading, setIsLoading] = useState(false);
   const [selected, setSelected] = useState('');
 
+  const { executeRecaptcha } = useReCaptcha();
+
   const handleUserDetailChange = (e: any) => {
     const { name, value } = e.target;
     setUserDetail({ ...userDetail, [name]: value });
@@ -119,57 +123,59 @@ const RealInstagramLikes = (props: IProps) => {
     );
   };
 
-  // const handleClickGetFreeLikes = async () => {
-  //   const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
+  const handleClickGetFreeLikes = async (e: React.FormEvent) => {
+    const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
+    e.preventDefault();
 
-  //   if (!emailRegex.test(userDetail.email)) {
-  //     setErrors((prevErrors) => ({
-  //       ...prevErrors,
-  //       emailError: "Please enter a valid email address",
-  //     }));
-  //     return;
-  //   } else {
-  //     setErrors((prevErrors) => ({ ...prevErrors, emailError: "" })); // Clear any previous errors
-  //   }
+    if (!emailRegex.test(userDetail.email)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        emailError: 'Please enter a valid email address'
+      }));
+      return;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, emailError: '' })); // Clear any previous errors
+    }
 
-  //   let res;
-  //   // setIsLoading(true);
+    let res;
+    // setIsLoading(true);
 
-  //   try {
-  //     const recaptchaToken = await executeRecaptcha();
-  //     const payload = {
-  //       email: userDetail.email,
-  //       igu: userDetail.user_name,
-  //       "g-recaptcha-response": recaptchaToken,
-  //     };
+    try {
+      const recaptchaToken = await executeRecaptcha('form_submit');
+      const payload = {
+        email: userDetail.email,
+        igu: userDetail.user_name,
+        'g-recaptcha-response': recaptchaToken
+      };
 
-  //     res = await axios.post<IFreeTrial>(
-  //       `${apiBaseUrl}free-instagram-likes`,
-  //       payload
-  //     );
+      res = await axios.post<IFreeTrial>(
+        `${apiBaseUrl}/free-instagram-likes`,
+        payload
+      );
 
-  //     if (res.data.success === false) {
-  //       toast.error(res.data.message, toastOptions);
-  //       return;
-  //     }
+      if (res.data.success === false) {
+        toast.error(res.data.message, toastOptions);
+        return;
+      }
 
-  //     // setIsLoading(false);
-  //     toast.success(
-  //       "Success!", // TODO - this was res.data.message
-  //       toastOptions
-  //     );
-  //     setUserData(res.data);
-  //     setIsSelectPostModal(true);
-  //     setErrors({ emailError: "", userNameError: "" });
-  //   } catch (error) {
-  //     // setIsLoading(false);
-  //     console.log(error);
-  //     toast.error(
-  //       typeof error === "string" ? error : error.response.data.error,
-  //       toastOptions
-  //     );
-  //   }
-  // };
+      // setIsLoading(false);
+      toast.success(
+        'Success!', // TODO - this was res.data.message
+        toastOptions
+      );
+      setUserData(res.data);
+      setIsSelectPostModal(true);
+      setErrors({ emailError: '', userNameError: '' });
+    } catch (error) {
+      // setIsLoading(false);
+      console.log({error});
+      toast.error(
+        //@ts-ignore
+        typeof error === 'string' ? error : error.response.data.error,
+        toastOptions
+      );
+    }
+  };
 
   return (
     <>
@@ -198,156 +204,161 @@ const RealInstagramLikes = (props: IProps) => {
               </p>
             </div>
 
-            <h3
-              className='text-start'
-              style={{
-                fontWeight: '600',
-                marginBottom: '24px',
-                color: '#02111B'
-              }}
-            >
-              Free Trial
-            </h3>
-            <div
-              style={{
-                border: '1px solid #0d57c6',
-                borderRadius: '10px',
-                lineHeight: '28px',
-                marginTop: '32px',
-                backgroundColor: '#f3f6fc'
-              }}
-            >
-              <div style={{ padding: '24px' }}>
-                <div className='d-flex'>
-                  <div className='col-md-6 mb-3'>
-                    <label
-                      className='form-label d-flex'
-                      style={{ color: '#02111B' }}
-                    >
-                      User name:
-                    </label>
-                    <input
-                      style={{
-                        width: '97%',
-                        color: '#6B7175',
-                        border: errors.userNameError && '2px solid red'
-                      }}
-                      name='user_name'
-                      type='text'
-                      className='form-control'
-                      defaultValue={userDetail.user_name}
-                      onChange={handleUserDetailChange}
-                      placeholder='Enter Instagram valid username e.g. “cristiano”'
-                    />
-                    {errors.userNameError && (
-                      <span
-                        className='d-flex'
-                        style={{ color: 'red', marginTop: '10px' }}
-                      >
-                        {errors.userNameError}
-                      </span>
-                    )}
-                  </div>
-                  <div className='col-md-6 mb-3'>
-                    <label
-                      className='form-label d-flex'
-                      style={{ color: '#02111B' }}
-                    >
-                      Email:
-                    </label>
-                    <input
-                      style={{
-                        width: '97%',
-                        color: '#6B7175',
-                        border: errors.emailError && '2px solid red'
-                      }}
-                      type='email'
-                      name='email'
-                      defaultValue={userDetail.email}
-                      onChange={handleUserDetailChange}
-                      className='form-control'
-                      placeholder='Enter your email address'
-                    />
-                    {errors.emailError && (
-                      <span
-                        className='d-flex'
-                        style={{ color: 'red', marginTop: '10px' }}
-                      >
-                        {errors.emailError}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <div
-                  className='pl-2'
-                  style={{
-                    backgroundColor: '#c5d6f2',
-                    borderRadius: '10px'
-                  }}
-                >
-                  <div className='form-check d-flex justify-content-between'>
-                    <div
-                      className='d-flex justify-content-between align-items-center'
-                      style={{
-                        gap: '11px'
-                      }}
-                    >
-                      <input
-                        className='form-check-input'
-                        type='radio'
-                        id={'real-likes'}
-                        value={'real-likes'}
-                        onChange={handleChangeRadio}
-                        name={'real-likes'}
-                        style={{
-                          margin: '12px 0px',
-                          backgroundColor: '#FF3E6C',
-                          boxShadow: 'none',
-                          border: 'transparent'
-                        }}
-                        checked={isSelectedRadio === 'real-likes'}
-                      />
+            <form
+            onSubmit={(e) => handleClickGetFreeLikes(e)}
+            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
+            data-callback='onSubmit'
+            data-action='submit'>
+              <h3
+                className='text-start'
+                style={{
+                  fontWeight: '600',
+                  marginBottom: '24px',
+                  color: '#02111B'
+                }}
+              >
+                Free Trial
+              </h3>
+              <div
+                style={{
+                  border: '1px solid #0d57c6',
+                  borderRadius: '10px',
+                  lineHeight: '28px',
+                  marginTop: '32px',
+                  backgroundColor: '#f3f6fc'
+                }}
+              >
+                <div style={{ padding: '24px' }}>
+                  <div className='d-flex'>
+                    <div className='col-md-6 mb-3'>
                       <label
-                        className='form-check-label ms-2'
-                        style={{ fontSize: '18px', fontWeight: '600' }}
+                        className='form-label d-flex'
+                        style={{ color: '#02111B' }}
                       >
-                        10-50 Real Likes
+                        User name:
                       </label>
-                      <span
+                      <input
                         style={{
-                          backgroundColor: 'yellow',
-                          color: '#0863EB',
-                          padding: '4px 8px 4px 8px',
-                          marginTop: '5px',
-                          fontSize: '16px',
-                          fontWeight: '700'
+                          width: '97%',
+                          color: '#6B7175',
+                          border: errors.userNameError && '2px solid red'
                         }}
-                        className='badge rounded-pill'
-                      >
-                        {'Free'}
-                      </span>
+                        name='user_name'
+                        type='text'
+                        className='form-control'
+                        defaultValue={userDetail.user_name}
+                        onChange={handleUserDetailChange}
+                        placeholder='Enter Instagram valid username e.g. “cristiano”'
+                      />
+                      {errors.userNameError && (
+                        <span
+                          className='d-flex'
+                          style={{ color: 'red', marginTop: '10px' }}
+                        >
+                          {errors.userNameError}
+                        </span>
+                      )}
                     </div>
+                    <div className='col-md-6 mb-3'>
+                      <label
+                        className='form-label d-flex'
+                        style={{ color: '#02111B' }}
+                      >
+                        Email:
+                      </label>
+                      <input
+                        style={{
+                          width: '97%',
+                          color: '#6B7175',
+                          border: errors.emailError && '2px solid red'
+                        }}
+                        type='email'
+                        name='email'
+                        defaultValue={userDetail.email}
+                        onChange={handleUserDetailChange}
+                        className='form-control'
+                        placeholder='Enter your email address'
+                      />
+                      {errors.emailError && (
+                        <span
+                          className='d-flex'
+                          style={{ color: 'red', marginTop: '10px' }}
+                        >
+                          {errors.emailError}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div
+                    className='pl-2'
+                    style={{
+                      backgroundColor: '#c5d6f2',
+                      borderRadius: '10px'
+                    }}
+                  >
+                    <div className='form-check d-flex justify-content-between'>
+                      <div
+                        className='d-flex justify-content-between align-items-center'
+                        style={{
+                          gap: '11px'
+                        }}
+                      >
+                        <input
+                          className='form-check-input'
+                          type='radio'
+                          id={'real-likes'}
+                          value={'real-likes'}
+                          onChange={handleChangeRadio}
+                          name={'real-likes'}
+                          style={{
+                            margin: '12px 0px',
+                            backgroundColor: '#FF3E6C',
+                            boxShadow: 'none',
+                            border: 'transparent'
+                          }}
+                          checked={isSelectedRadio === 'real-likes'}
+                        />
+                        <label
+                          className='form-check-label ms-2'
+                          style={{ fontSize: '18px', fontWeight: '600' }}
+                        >
+                          10-50 Real Likes
+                        </label>
+                        <span
+                          style={{
+                            backgroundColor: 'yellow',
+                            color: '#0863EB',
+                            padding: '4px 8px 4px 8px',
+                            marginTop: '5px',
+                            fontSize: '16px',
+                            fontWeight: '700'
+                          }}
+                          className='badge rounded-pill'
+                        >
+                          {'Free'}
+                        </span>
+                      </div>
 
-                    <button
-                      className='btn rounded-3'
-                      style={{
-                        border: 'none',
-                        color: 'white',
-                        width: '210px',
-                        fontWeight: '700',
-                        fontSize: '14px',
-                        background: '#FF3E6C',
-                        opacity: 1
-                      }}
-                      // onClick={handleClickGetFreeLikes}
-                      disabled={!isFormValid()}
-                    >
-                      Get 50 Instagram Free Likes
-                    </button>
+                      <button
+                        className='btn rounded-3'
+                        style={{
+                          border: 'none',
+                          color: 'white',
+                          width: '210px',
+                          fontWeight: '700',
+                          fontSize: '14px',
+                          background: '#FF3E6C',
+                          opacity: 1
+                        }}
+                        disabled={!isFormValid()}
+                      >
+                        Get 50 Instagram Free Likes
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
             <div style={{ marginTop: '50px' }}>
               <h3
                 className='text-start'

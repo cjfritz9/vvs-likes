@@ -24,7 +24,7 @@ const EngagementAndPopularity = () => {
                 proof, appeal and online trust. We instinctively rely on others
                 for life decisions, from choosing crowded restaurants to
                 emulating celebrity fashion. Unfortunately, on Instagram, low
-                likes and followers label an account as 'boring.' Yet, there's
+                likes and followers label an account as "boring." Yet, there's
                 an alternative path. Imagine waking up to thousands of real
                 likes and followers every morning, how would your day be
                 different?

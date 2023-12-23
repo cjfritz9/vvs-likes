@@ -1,22 +1,23 @@
 'use client';
 
-import { useState } from "react";
-import DetailsAboutInstagramLikes from "@/components/details_about_instagram_likes";
-import HowVvsWorks from "@/components/how_vvs_works";
-import ThankYouModal from "@/components/modal/thank_you_modal";
-import OurMethod from "@/components/our_method";
-import TrustedByPeople from "@/components/trusted_by_people";
-import VvsLikesPricing from "@/components/vvs_likes_pricing";
-import VvsLikesBenefit from "@/components/vvslikes_benefit";
-import WhyChooseUs from "@/components/why_choose_us";
-import Faq from "@/components/faq";
-import PackageDetailsModal from "@/components/modal/package_details_modal";
-import "@/styles/home.css";
-import SelectYourPostModal from "@/components/selectYourPostModal/SelectYourPostModal";
-import WebsiteTimerAutoAndBuy from "@/components/websiteTimerAutoAndBuy/WebsiteTimerAutoAndBuy";
-import "@/styles/blog_details.css";
-import "@/styles/blogcards.css";
-import InstaPostModal from "@/components/modal/insta_posts_modal";
+import { useState } from 'react';
+import DetailsAboutInstagramLikes from '@/components/details_about_instagram_likes';
+import HowVvsWorks from '@/components/how_vvs_works';
+import ThankYouModal from '@/components/modal/thank_you_modal';
+import OurMethod from '@/components/our_method';
+import TrustedByPeople from '@/components/trusted_by_people';
+import VvsLikesPricing from '@/components/vvs_likes_pricing';
+import VvsLikesBenefit from '@/components/vvslikes_benefit';
+import WhyChooseUs from '@/components/why_choose_us';
+import Faq from '@/components/faq';
+import PackageDetailsModal from '@/components/modal/package_details_modal';
+import '@/styles/home.css';
+import SelectYourPostModal from '@/components/selectYourPostModal/SelectYourPostModal';
+import WebsiteTimerAutoAndBuy from '@/components/websiteTimerAutoAndBuy/WebsiteTimerAutoAndBuy';
+import '@/styles/blog_details.css';
+import '@/styles/blogcards.css';
+import InstaPostModal from '@/components/modal/insta_posts_modal';
+import useIsClient from '@/lib/hooks/useIsClient';
 
 // import blog_img1 from "../../assets/images/blog_img1.png";
 // import blog_img2 from "../../assets/images/blog_img2.png";
@@ -30,22 +31,18 @@ export default function Home() {
   const [isThankYouModal, setIsThankYouModal] = useState(false);
   const [isPackageDetailsModal, setIsPackageDetailsModal] = useState(false);
   const [isInstaPost, setIsInstaPost] = useState(false);
-  const location = window.location.pathname;
   const [userData, setUserData] = useState();
   const [selectedImage, setSelectedImage] = useState({ code: '', id: '' });
 
+  const { isClient } = useIsClient();
+  if (!isClient) {
+    return null;
+  }
+
+  const location = window.location.pathname;
+
   return (
     <>
-      {/* <Helmet>
-        <meta charSet='utf-8' />
-        <title>Buy Instagram Likes: Get 10-50 Real IG Likes FREE⋆Instant</title>
-        <meta
-          name='description'
-          content='Buy Instagram likes from VVSLikes. Skeptical? Get a 10-50 trial of free REAL Instagram likes & experience engagement instantly. No surveys/verification or CC.'
-        />
-
-        <link rel='canonical' href='https://vvslikes.com/' />
-      </Helmet> */}
       <>
         <DetailsAboutInstagramLikes
           setIsSelectPostModal={setIsSelectPostModal}
