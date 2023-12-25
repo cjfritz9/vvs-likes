@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/subscriptionPlanTable.css";
+import "@/styles/subscriptionPlanTable.css";
 import PackageList from "../package_list";
 
 const realLikesArray = [
@@ -47,9 +47,9 @@ function SubscriptionPlanTable() {
           }
           saveUpto={"Save up to 70%"}
           instantlyDelivery={[
-            <span className="instant-like">250</span>,
+            <span key={0} className="instant-like">250</span>,
             " Real Likes Delivered instantly, ",
-            <span className="instant-like">29.99</span>,
+            <span key={1} className="instant-like">29.99</span>,
           ]}
           btnText={"Buy Now"}
         />

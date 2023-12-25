@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import hour_glass from '@/assets/svg/hourglass.svg';
@@ -25,7 +25,7 @@ const TimerAndProgressBar = (props: IProps) => {
 
     const payload = {
       user_id: selectedImage.id,
-      post_id: selectedImage.code,
+      post_id: selectedImage.code
     };
 
     try {
@@ -34,7 +34,7 @@ const TimerAndProgressBar = (props: IProps) => {
       toast.success(res.data.message, {
         transition: Slide,
         hideProgressBar: true,
-        autoClose: 2000,
+        autoClose: 2000
       });
     } catch (err: any) {
       alert(err?.response?.data?.message ?? 'Email Verification Failed');
@@ -57,7 +57,7 @@ const TimerAndProgressBar = (props: IProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, [progress]);
+  }, [progress, getVerifyEmail, setIsThankYouModal, setIsWebsiteTimerModal]);
 
   useEffect(() => {
     // Increase progress after 5 seconds

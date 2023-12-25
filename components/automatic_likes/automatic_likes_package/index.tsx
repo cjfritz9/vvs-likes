@@ -121,9 +121,9 @@ const AutomaticLikesPackage = () => {
         }
         saveUpto={"Save up to 70%"}
         instantlyDelivery={[
-          <span className="instant-like">1k-1.4</span>,
+          <span key={0} className="instant-like">1k-1.4</span>,
           "  Likes Per Post Charged ",
-          <span className="instant-like">Monthly $29.99 </span>,
+          <span key={1} className="instant-like">Monthly $29.99 </span>,
         ]}
         btnText={"Subscribe"}
         savingPillData={"-41% Savings"}
