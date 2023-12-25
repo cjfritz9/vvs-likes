@@ -37,7 +37,7 @@ export const MailService = {
       html
     };
     try {
-      await new Promise((resolve, reject) => {
+      const response: any = await new Promise((resolve, reject) => {
         smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
           if (err) {
             console.log(err);
@@ -48,6 +48,7 @@ export const MailService = {
           }
         });
       });
+      console.log({ response });
     } catch (error) {
       logger.error({
         message: 'sendmail() error',
