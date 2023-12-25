@@ -15,7 +15,6 @@ function generateRandomVerificationCode(freeTrialId: string) {
 export async function freeTrial(req: NextRequest) {
   const body = (await req.json()) as any;
   const { igu: instagramUsername, email } = body;
-  console.log({ instagramUsername, email });
   const metadata = {
     method: 'freetrial',
     body
@@ -167,7 +166,7 @@ export async function freeTrial(req: NextRequest) {
   }
 }
 
-export async function verifyEmail(req: NextRequest, res: Response) {
+export async function verifyEmail(req: NextRequest) {
   const body = (await req.json()) as any;
   const { verification_code } = body;
   const metadata = {
@@ -226,19 +225,19 @@ export async function verifyEmail(req: NextRequest, res: Response) {
   const postUrl = 'https://www.instagram.com/p/' + freeTrial.post_id + '/';
 
   try {
-    ValidationService.createSMMRajaOrder({
+    await ValidationService.createSMMRajaOrder({
       action: 'add',
       service: 5504,
       link: postUrl,
       quantity: 10
     });
 
-    ValidationService.createSMMRajaOrder({
-      action: 'add',
-      service: 7687,
-      link: postUrl,
-      quantity: 10
-    });
+    // const createdOrderRes2 = await ValidationService.createSMMRajaOrder({
+    //   action: 'add',
+    //   service: 7687,
+    //   link: postUrl,
+    //   quantity: 10
+    // });
 
     await FreeTrialModel.update(
       {

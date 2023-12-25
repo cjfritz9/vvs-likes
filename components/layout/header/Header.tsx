@@ -42,7 +42,8 @@ const HeaderBar = () => {
             background: '#F79410',
             padding: '20px 0px',
             gap: '10px',
-            width: '100%'
+            width: '100%',
+            textAlign: 'center'
           }}
         >
           <a className='text-white' href='#'>

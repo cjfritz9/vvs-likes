@@ -79,7 +79,7 @@ function createSMMRajaOrder(options: ISMMRajaOrder) {
   logger.info({ message: 'createSMMRajaOrder() triggered', options });
 
   return axios.post(smmRajaApi, null, {
-    params: options
+    params: { key: smmRajaKey, ...options}
   });
 }
 

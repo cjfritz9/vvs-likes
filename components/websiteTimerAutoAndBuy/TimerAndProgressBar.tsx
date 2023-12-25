@@ -57,7 +57,8 @@ const TimerAndProgressBar = (props: IProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, [progress, getVerifyEmail, setIsThankYouModal, setIsWebsiteTimerModal]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress]);
 
   useEffect(() => {
     // Increase progress after 5 seconds
