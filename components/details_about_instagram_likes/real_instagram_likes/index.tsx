@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 import PackageList from '@/components/package_list';
@@ -124,17 +124,16 @@ const RealInstagramLikes = (props: IProps) => {
   };
 
   const handleClickGetFreeLikes = async (e: React.FormEvent) => {
-    const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
     e.preventDefault();
 
-    if (!emailRegex.test(userDetail.email)) {
+    if (!userDetail.email.includes('@') || !userDetail.email.includes('.')) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         emailError: 'Please enter a valid email address'
       }));
       return;
     } else {
-      setErrors((prevErrors) => ({ ...prevErrors, emailError: '' })); // Clear any previous errors
+      setErrors((prevErrors) => ({ ...prevErrors, emailError: '' }));
     }
 
     let res;
@@ -168,7 +167,7 @@ const RealInstagramLikes = (props: IProps) => {
       setErrors({ emailError: '', userNameError: '' });
     } catch (error) {
       // setIsLoading(false);
-      console.log({error});
+      console.log({ error });
       toast.error(
         //@ts-ignore
         typeof error === 'string' ? error : error.response.data.error,
@@ -205,10 +204,11 @@ const RealInstagramLikes = (props: IProps) => {
             </div>
 
             <form
-            onSubmit={(e) => handleClickGetFreeLikes(e)}
-            data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
-            data-callback='onSubmit'
-            data-action='submit'>
+              onSubmit={(e) => handleClickGetFreeLikes(e)}
+              data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
+              data-callback='onSubmit'
+              data-action='submit'
+            >
               <h3
                 className='text-start'
                 style={{

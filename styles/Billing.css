@@ -30,7 +30,6 @@
 }
 
 .col-style-1 h4{
-    font-family: Outfit;
     font-size: 18px;
     font-weight: 600;
     line-height: 18px;
@@ -41,7 +40,6 @@
 
 
 .billing .confirm-order {
-    font-family: Outfit;
     font-size: 24px;
     font-weight: 600;
     line-height: 24px;
@@ -76,7 +74,6 @@
     padding: 20px 10px;
 }
 .billing .col-style-2 h2{
-    font-family: Outfit;
     font-size: 24px;
     font-weight: 600;
     line-height: 24px;
@@ -185,7 +182,6 @@
 }
 
 .billing .links p{
-    font-family: Outfit;
     font-size: 16px;
     font-weight: 400;
     line-height: 16px;
@@ -214,7 +210,6 @@
     background: #FACC05;
     border:none;
     color: #0D57C6;
-    font-family: Outfit;
     font-size: 18px;
     font-weight: 700;
     line-height: 16px;
@@ -223,7 +218,6 @@
 }
 
 .col-style-4 p{
-    font-family: Outfit;
     font-size: 20px;
     font-weight: 400;
     line-height: 20px;
@@ -245,7 +239,6 @@
 } */
 
 .col-7 h2{
-    font-family: Outfit;
     font-size: 24px;
     font-weight: 600;
     line-height: 24px;
@@ -263,7 +256,6 @@
     background: #FF3E6C;
     border:none;
     color: #FFFFFF;
-    font-family: Outfit;
     font-size: 18px;
     font-weight: 700;
     line-height: 16px;
@@ -278,7 +270,6 @@ p.billing_dis {
     opacity: 60%;
 }
 .billing .col-7 p{
-    font-family: Outfit;
     font-size: 18px;
     font-weight: 400;
     line-height: 28px;
@@ -383,7 +374,6 @@ p {
 p.text.mb-1 {
     text-align: left;
     padding: 10px;
-    font-family: Outfit;
     font-size: 16px;
     font-weight: 600;
     line-height: 16px;

@@ -1,14 +1,14 @@
-import '../../styles/WebsiteTimerAutoAndBuy.css';
+import '@/styles/WebsiteTimerAutoAndBuy.css';
 import Modal from 'react-bootstrap/Modal';
-import SubscriptionPlanTable from '../subscriptionPlanTable/SubscriptionPlanTable';
+import SubscriptionPlanTable from '@/components/subscriptionPlanTable/SubscriptionPlanTable';
 import AutomaticLikesPackage from '@/components/automatic_likes/automatic_likes_package';
 import TimerAndProgressBar from './TimerAndProgressBar';
-import customer1 from '../../assets/svg/customer1.svg';
-import customer2 from '../../assets/svg/customer2.svg';
-import customer3 from '../../assets/svg/customer3.svg';
-import customer4 from '../../assets/svg/customer4.svg';
-import customer5 from '../../assets/svg/customer5.svg';
-import star from '../../assets/images/star.png';
+import customer1 from '@/assets/svg/customer1.svg';
+import customer2 from '@/assets/svg/customer2.svg';
+import customer3 from '@/assets/svg/customer3.svg';
+import customer4 from '@/assets/svg/customer4.svg';
+import customer5 from '@/assets/svg/customer5.svg';
+import star from '@/assets/images/star.png';
 import { Dispatch, SetStateAction } from 'react';
 import Image from 'next/image';
 

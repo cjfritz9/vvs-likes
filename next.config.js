@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [toRemotePattern(process.env.IG_CMS_IMAGE_PATTERN)]
+  },
   redirects: async () => [
     {
       source: '/',
@@ -8,6 +11,17 @@ const nextConfig = {
       permanent: true
     }
   ]
+}
+
+function toRemotePattern(urlString) {
+  const url = new URL(urlString);
+
+  return {
+    protocol: url.protocol.replace(':', ''),
+    hostname: url.hostname,
+    port: url.port,
+    pathname: url.pathname
+  };
 }
 
 module.exports = nextConfig

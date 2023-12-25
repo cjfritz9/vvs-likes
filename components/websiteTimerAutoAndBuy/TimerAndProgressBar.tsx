@@ -1,8 +1,8 @@
-// import axios from "axios";
-import { useEffect, useState } from "react";
-import { Slide, ToastContainer, toast } from "react-toastify";
-import hour_glass from "../../assets/svg/hourglass.svg";
-import Image from "next/image";
+import axios from "axios";
+import { useEffect, useState } from 'react';
+import { Slide, ToastContainer, toast } from 'react-toastify';
+import hour_glass from '@/assets/svg/hourglass.svg';
+import Image from 'next/image';
 // import { apiBaseUrl } from "src/App";
 
 interface IProps {
@@ -15,32 +15,32 @@ const TimerAndProgressBar = (props: IProps) => {
   const setIsThankYouModal = props.setIsThankYouModal;
   const selectedImage = props.selectedImage;
 
-  const totalTime = 120;
+  const totalTime = 12;
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  console.log({isLoading}); // TODO
+  console.log({ isLoading }); // TODO
 
-  // const getVerifyEmail = async () => {
-  //   setIsLoading(true);
+  const getVerifyEmail = async () => {
+    setIsLoading(true);
 
-  //   const payload = {
-  //     user_id: selectedImage.id,
-  //     post_id: selectedImage.code,
-  //   };
+    const payload = {
+      user_id: selectedImage.id,
+      post_id: selectedImage.code,
+    };
 
-  //   try {
-  //     const res = await axios.post(`${apiBaseUrl}email-verification`, payload);
-  //     setIsLoading(false);
-  //     toast.success(res.data.message, {
-  //       transition: Slide,
-  //       hideProgressBar: true,
-  //       autoClose: 2000,
-  //     });
-  //   } catch (err) {
-  //     alert(err?.response?.data?.message);
-  //     setIsLoading(false);
-  //   }
-  // };
+    try {
+      const res = await axios.post(`/api/email-verification`, payload);
+      setIsLoading(false);
+      toast.success(res.data.message, {
+        transition: Slide,
+        hideProgressBar: true,
+        autoClose: 2000,
+      });
+    } catch (err: any) {
+      alert(err?.response?.data?.message ?? 'Email Verification Failed');
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,7 +49,7 @@ const TimerAndProgressBar = (props: IProps) => {
       } else {
         setIsWebsiteTimerModal(false);
         setIsThankYouModal(true);
-        // getVerifyEmail();
+        getVerifyEmail();
         clearInterval(interval);
       }
     }, 1000);
@@ -84,38 +84,39 @@ const TimerAndProgressBar = (props: IProps) => {
   const adjustedProgressBarWidth = Math.min(progressBarWidth, 100);
 
   const beforeStyle = {
-    height: "10px",
+    height: '10px',
     width: `${adjustedProgressBarWidth}%`,
-    transition: "1s",
-    ":before": {
+    transition: '1s',
+    ':before': {
       content: `'${
         progress >= totalTime ? 100 : Math.round((progress / totalTime) * 100)
       }%'`,
-      position: "absolute",
-      fontSize: "16px",
+      position: 'absolute',
+      fontSize: '16px',
       right: `calc(${100 - adjustedProgressBarWidth}% - 50px)`,
-      top: "-26px",
-    },
+      top: '-26px'
+    }
   };
 
   return (
-    <div className="width">
-      <div className="d-flex justify-content-center">
-        <h1 className="fw-600" style={{ fontSize: "56px" }}>
+    <div className='width'>
+      <div className='d-flex justify-content-center'>
+        <h1 className='fw-600' style={{ fontSize: '56px' }}>
           {totalTime - progress}
         </h1>
         <Image
+          priority
           src={hour_glass}
-          alt=""
-          style={{ width: "60px", height: "60px" }}
+          alt=''
+          style={{ width: '60px', height: '60px' }}
         />
       </div>
 
-      <div className="w3-border" style={{ width: "550px" }}>
-        <div className="w3-grey" style={beforeStyle}>
-          <span className="percentage">
+      <div className='w3-border' style={{ width: '550px' }}>
+        <div className='w3-grey' style={beforeStyle}>
+          <span className='percentage'>
             {progress >= totalTime
-              ? "100%"
+              ? '100%'
               : `${Math.round((progress / totalTime) * 100)}%`}
           </span>
         </div>

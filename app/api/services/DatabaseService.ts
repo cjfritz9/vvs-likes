@@ -8,7 +8,7 @@ const sequelize = new Sequelize({
   username: config.database.username,
   password: config.database.password,
   host: config.database.host,
-  port: 25060,
+  port: +config.database.port,
   dialect: "mysql",
   dialectModule: require('mysql2'),
   models: [FreeTrialModel],

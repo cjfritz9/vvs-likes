@@ -265,7 +265,6 @@ span.instant-like {
 
 .featured-in-blog-section-title p {
   font-weight: 400;
-  font-family: "Outfit";
   font-size: 16px;
   line-height: 28px;
   text-align: center;
@@ -291,7 +290,6 @@ span.instant-like {
 }
 
 .featured-in-blog-section-title h1 {
-  font-family: Outfit;
   font-size: 36px;
   font-weight: 600;
   line-height: 36px;
@@ -300,7 +298,6 @@ span.instant-like {
 }
 
 .featured-in-blog-section-title p {
-  font-family: Outfit;
   font-size: 16px;
   font-weight: 400;
   line-height: 28px;

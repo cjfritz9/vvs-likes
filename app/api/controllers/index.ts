@@ -43,7 +43,7 @@ export async function freeTrial(req: NextRequest) {
   }
 
   // Validate presence and format of email
-  if (!email || !emailRegex.test(email)) {
+  if (!email || !email.includes('@') || !email.includes('.')) {
     logger.error({
       error: 'Invalid email',
       ...metadata
@@ -63,7 +63,6 @@ export async function freeTrial(req: NextRequest) {
     verificationResult = await ValidationService.verification(
       instagramUsername
     );
-    console.log(verificationResult)
   } catch (error: any) {
     logger.error({
       message: 'verificationResult() error',
@@ -275,13 +274,13 @@ export async function verifyEmail(req: NextRequest, res: Response) {
   }
 }
 
-export async function emailVerificaton(req: NextRequest, res: Response) {
+export async function emailVerificaton(req: NextRequest) {
   const body = (await req.json()) as any;
   const { post_id, user_id } = body;
 
   const metadata = {
     method: 'emailVerificaton',
-    body: req.body
+    body
   };
   logger.info('emailVerificaton() triggered', metadata);
 
@@ -334,6 +333,7 @@ export async function emailVerificaton(req: NextRequest, res: Response) {
 
     const emailMessage = `<html><body>Please click <a href="${apiBaseUrl}verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
 
+    console.log({ 'freeTrial.email': freeTrial.email });
     MailService.sendEmail({
       to: freeTrial.email,
       subject: 'VVSLikes - Please verify your email address',

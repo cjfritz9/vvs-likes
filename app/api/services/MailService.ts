@@ -13,16 +13,21 @@ interface IMailOptions {
 export const MailService = {
   sendEmail({ to, subject, html }: IMailOptions) {
     const smtpTransport = nodemailer.createTransport({
-      host: config.mailServer.host,
-      port: config.mailServer.port,
-      secure: false,
+      service: config.mailServer.service,
+      // host: config.mailServer.host,
+      // port: config.mailServer.port,
+      // secure: false,
       auth: {
+        type: 'OAuth2',
         user: config.mailServer.username,
-        pass: config.mailServer.password
+        pass: config.mailServer.password,
+        clientId: config.mailServer.oAuthClientId,
+        clientSecret: config.mailServer.oAuthClientSecret,
+        refreshToken: config.mailServer.oAuthRefreshToken
       },
-      tls: {
-        rejectUnauthorized: false
-      }
+      // tls: {
+      //   rejectUnauthorized: false
+      // }
     });
 
     const mailOptions = {

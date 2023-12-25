@@ -1,6 +1,6 @@
-import Image from "next/image";
-import "../../styles/InstagramGrid.css";
-import { IFreeTrial } from "../details_about_instagram_likes/real_instagram_likes";
+import Image from 'next/image';
+import '../../styles/InstagramGrid.css';
+import { IFreeTrial } from '../details_about_instagram_likes/real_instagram_likes';
 
 interface IProps {
   userDetail?: IFreeTrial;
@@ -11,10 +11,10 @@ interface IProps {
 }
 
 const formatFollowerCount = (count?: number) => {
-  if (typeof count !== "number") return "N/A";
+  if (typeof count !== 'number') return 'N/A';
 
   if (count >= 1000) {
-    return (count / 1000).toFixed(1) + "k";
+    return (count / 1000).toFixed(1) + 'k';
   } else {
     return count.toString();
   }
@@ -32,36 +32,38 @@ const InstagramGrid = (props: IProps) => {
   };
 
   return (
-    <div className="instagram-grid">
-      <div className="instagram-grid-item">
-        <div className="instagram-grid-item-header">
+    <div className='instagram-grid'>
+      <div className='instagram-grid-item'>
+        <div className='instagram-grid-item-header'>
           <h2>Select Your Post:</h2>
           <p>You will start to see likes instantly.</p>
         </div>
 
-        <div key={instaProfile?.pk} className="instagram-grid-item-content">
-          <div className="title">{instaProfile?.username}</div>
-          <div className="instagram-grid-item-image">
+        <div key={instaProfile?.pk} className='instagram-grid-item-content'>
+          <div className='title'>{instaProfile?.username}</div>
+          <div className='instagram-grid-item-image'>
             <Image
               style={{
-                height: " 80px",
-                width: "80px",
-                objectFit: "cover",
-                objectPosition: "center",
+                height: ' 80px',
+                width: '80px',
+                objectFit: 'cover',
+                objectPosition: 'center'
               }}
-              src={instaProfile?.profile_pic_url}
-              alt={instaProfile?.username}
+              height={80}
+              width={80}
+              src={instaProfile!.profile_pic_url}
+              alt={instaProfile!.username}
             />
-            <div className="instagram-grid-post-followers-following">
-              <div className="posts">
+            <div className='instagram-grid-post-followers-following'>
+              <div className='posts'>
                 <h4>{instagramPosts?.length || 0}</h4>
-                <p>{`Post${(instagramPosts?.length || 0) === 1 ? "" : "s"}`}</p>
+                <p>{`Post${(instagramPosts?.length || 0) === 1 ? '' : 's'}`}</p>
               </div>
-              <div className="followers">
+              <div className='followers'>
                 <h4>{formatFollowerCount(instaProfile?.follower_count)}</h4>
                 <p>Followers</p>
               </div>
-              <div className="following">
+              <div className='following'>
                 <h4>{instaProfile?.following_count}</h4>
                 <p>Following</p>
               </div>
@@ -69,19 +71,21 @@ const InstagramGrid = (props: IProps) => {
           </div>
         </div>
 
-        <div className="custom_wrap">
-          <div className="content">
+        <div className='custom_wrap'>
+          <div className='content'>
             {instagramPosts?.map((data) => {
               return (
                 <>
                   <Image
                     onClick={() => handleSelected(data.code, userDetail?.id)}
                     src={data.image_versions2.candidates[0].url}
-                    alt="posts"
+                    alt='posts'
+                    height={132}
+                    width={132}
                     style={
                       selectedImage.code === data.code
-                        ? { border: "3px solid #FF3E6C", cursor: "pointer" }
-                        : { cursor: "pointer" }
+                        ? { border: '3px solid #FF3E6C', cursor: 'pointer' }
+                        : { cursor: 'pointer' }
                     }
                   />
                 </>
