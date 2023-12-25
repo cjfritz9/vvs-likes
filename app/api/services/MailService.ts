@@ -11,7 +11,7 @@ interface IMailOptions {
 }
 
 export const MailService = {
-  sendEmail({ to, subject, html }: IMailOptions) {
+  async sendEmail({ to, subject, html }: IMailOptions) {
     const smtpTransport = nodemailer.createTransport({
       service: config.mailServer.service,
       // host: config.mailServer.host,
@@ -24,7 +24,7 @@ export const MailService = {
         clientId: config.mailServer.oAuthClientId,
         clientSecret: config.mailServer.oAuthClientSecret,
         refreshToken: config.mailServer.oAuthRefreshToken
-      },
+      }
       // tls: {
       //   rejectUnauthorized: false
       // }
@@ -37,7 +37,17 @@ export const MailService = {
       html
     };
     try {
-      smtpTransport.sendMail(mailOptions);
+      await new Promise((resolve, reject) => {
+        smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
+          if (err) {
+            console.log(err);
+            console.log(info);
+            reject(err);
+          } else {
+            resolve(info);
+          }
+        });
+      });
     } catch (error) {
       logger.error({
         message: 'sendmail() error',
