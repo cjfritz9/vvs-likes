@@ -332,7 +332,6 @@ export async function emailVerificaton(req: NextRequest) {
 
     const emailMessage = `<html><body>Please click <a href="${apiBaseUrl}verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
 
-    console.log({ 'freeTrial.email': freeTrial.email });
     MailService.sendEmail({
       to: freeTrial.email,
       subject: 'VVSLikes - Please verify your email address',
