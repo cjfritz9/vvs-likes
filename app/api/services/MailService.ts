@@ -38,7 +38,8 @@ export const MailService = {
     };
     try {
       const response: any = await new Promise((resolve, reject) => {
-        smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
+          console.log('In Promise wrapper for mail sending function')
+          smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
           console.log('In mail sending function')
           if (err) {
             console.log(err);
