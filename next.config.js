@@ -10,8 +10,9 @@ const nextConfig = {
       destination: 'https://vvslikes.com/',
       permanent: true
     }
-  ]
-}
+  ],
+  output: 'standalone'
+};
 
 function toRemotePattern(urlString) {
   const url = new URL(urlString);
@@ -24,4 +25,4 @@ function toRemotePattern(urlString) {
   };
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

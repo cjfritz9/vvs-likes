@@ -17,6 +17,7 @@
 /build
 
 # misc
+.dockerignore
 .DS_Store
 *.pem
 

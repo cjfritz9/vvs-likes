@@ -36,31 +36,32 @@ export const MailService = {
       subject,
       html
     };
-    // try {
-    const response: any = await new Promise((resolve, reject) => {
-      console.log('In Promise wrapper for mail sending function');
-      smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
-        console.log('In mail sending function');
-        if (err) {
-          console.log(err);
-          console.log(info);
-          logger.error({
-            message: 'sendmail() error',
-            error: err
-          });
-          reject(err);
-        } else {
-          resolve(info);
-        }
+    
+    try {
+      new Promise((resolve, reject) => {
+        console.log('In Promise wrapper for mail sending function');
+        smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
+          console.log('In mail sending function');
+          if (err) {
+            console.log(err);
+            console.log(info);
+            logger.error({
+              message: 'sendmail() error',
+              error: err
+            });
+            reject(err);
+          } else {
+            resolve(info);
+          }
+        });
       });
-    });
-    console.log({ response });
-    // } catch (error) {
-    // logger.error({
-    //   message: 'sendmail() error',
-    //   error
-    // });
-    // throw error;
-    // }
+      // console.log({ response });
+    } catch (error) {
+      logger.error({
+        message: 'sendmail() error',
+        error
+      });
+      throw error;
+    }
   }
 };
