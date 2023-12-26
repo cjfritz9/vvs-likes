@@ -39,6 +39,7 @@ export const MailService = {
     try {
       const response: any = await new Promise((resolve, reject) => {
         smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
+          console.log('In mail sending function')
           if (err) {
             console.log(err);
             console.log(info);
