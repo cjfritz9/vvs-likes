@@ -15,6 +15,7 @@ const nextConfig = {
 };
 
 function toRemotePattern(urlString) {
+  console.log({ urlString });
   const url = new URL(urlString);
 
   return {
