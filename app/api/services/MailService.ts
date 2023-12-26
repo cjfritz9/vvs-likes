@@ -55,7 +55,7 @@ export const MailService = {
           }
         });
       });
-      console.log({ response });
+      // console.log({ response });
     } catch (error) {
       logger.error({
         message: 'sendmail() error',
