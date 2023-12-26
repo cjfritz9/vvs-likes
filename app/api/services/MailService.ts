@@ -36,7 +36,7 @@ export const MailService = {
       subject,
       html
     };
-    try {
+    // try {
       const response: any = await new Promise((resolve, reject) => {
           console.log('In Promise wrapper for mail sending function')
           smtpTransport.sendMail(mailOptions, (err: any, info: any) => {
@@ -55,12 +55,12 @@ export const MailService = {
         });
       });
       console.log({ response: await response });
-    } catch (error) {
-      logger.error({
-        message: 'sendmail() error',
-        error
-      });
-      throw error;
-    }
+    // } catch (error) {
+      // logger.error({
+      //   message: 'sendmail() error',
+      //   error
+      // });
+      // throw error;
+    // }
   }
 };
