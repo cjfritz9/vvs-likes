@@ -325,7 +325,7 @@ export async function emailVerificaton(req: NextRequest) {
       }
     );
 
-    const baseUrl = apiBaseUrl.slice(0, -3)
+    const baseUrl = apiBaseUrl.slice(0, -4)
 
 
     console.log({baseUrl})
