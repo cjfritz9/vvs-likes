@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { FreeTrialModel } from '../models/FreeTrialModel';
 import { MailService, ValidationService, Logger } from '../services';
+import { apiBaseUrl } from '@/lib/utils';
 
 const logger = Logger.getLogger();
-const emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/;
 
 function generateRandomVerificationCode(freeTrialId: string) {
   return (
@@ -325,12 +325,12 @@ export async function emailVerificaton(req: NextRequest) {
       }
     );
 
-    const apiBaseUrl =
-      process.env.NODE_ENV === 'production'
-        ? 'https://vvslikes.com/'
-        : 'http://localhost:3000/';
+    const baseUrl = apiBaseUrl.slice(0, -3)
 
-    const emailMessage = `<html><body>Please click <a href="${apiBaseUrl}verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
+
+    console.log({baseUrl})
+
+    const emailMessage = `<html><body>Please click <a href="${baseUrl}/verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
 
     MailService.sendEmail({
       to: freeTrial.email,
