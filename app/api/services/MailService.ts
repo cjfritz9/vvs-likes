@@ -42,13 +42,17 @@ export const MailService = {
           if (err) {
             console.log(err);
             console.log(info);
+            logger.error({
+              message: 'sendmail() error',
+              error: err
+            });
             reject(err);
           } else {
             resolve(info);
           }
         });
       });
-      console.log({ response });
+      console.log({ response: await response });
     } catch (error) {
       logger.error({
         message: 'sendmail() error',
