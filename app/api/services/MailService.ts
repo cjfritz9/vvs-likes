@@ -36,7 +36,7 @@ export const MailService = {
       subject,
       html
     };
-    
+
     try {
       new Promise((resolve, reject) => {
         console.log('In Promise wrapper for mail sending function');
@@ -55,7 +55,7 @@ export const MailService = {
           }
         });
       });
-      // console.log({ response });
+      console.log({ response });
     } catch (error) {
       logger.error({
         message: 'sendmail() error',
