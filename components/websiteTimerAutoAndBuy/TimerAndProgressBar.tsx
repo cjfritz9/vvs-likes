@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import hour_glass from '@/assets/svg/hourglass.svg';
 import Image from 'next/image';
-// import { apiBaseUrl } from "src/App";
 
 interface IProps {
   setIsWebsiteTimerModal: any;

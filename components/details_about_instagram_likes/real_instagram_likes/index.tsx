@@ -5,7 +5,6 @@ import PackageList from '@/components/package_list';
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, ToastContainer, toast } from 'react-toastify';
-import { apiBaseUrl } from '@/lib/utils';
 import { useReCaptcha } from 'next-recaptcha-v3';
 
 export interface IFreeTrial {
@@ -148,7 +147,7 @@ const RealInstagramLikes = (props: IProps) => {
       };
 
       res = await axios.post<IFreeTrial>(
-        `${apiBaseUrl}/free-instagram-likes`,
+        `/api/free-instagram-likes`,
         payload
       );
 

@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { FreeTrialModel } from '../models/FreeTrialModel';
 import { MailService, ValidationService, Logger } from '../services';
-import { apiBaseUrl } from '@/lib/utils';
 
 const logger = Logger.getLogger();
 
@@ -274,6 +273,7 @@ export async function verifyEmail(req: NextRequest) {
 }
 
 export async function emailVerificaton(req: NextRequest) {
+  const baseUrl = req.headers.get('origin');
   const body = (await req.json()) as any;
   const { post_id, user_id } = body;
 
@@ -324,8 +324,6 @@ export async function emailVerificaton(req: NextRequest) {
         }
       }
     );
-
-    const baseUrl = apiBaseUrl.slice(0, -4)
 
     const emailMessage = `<html><body>Please click <a href="${baseUrl}/verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
 

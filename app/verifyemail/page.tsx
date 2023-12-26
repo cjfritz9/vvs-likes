@@ -3,7 +3,6 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { apiBaseUrl } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const VerifyEmailPage: React.FC = () => {
@@ -20,7 +19,7 @@ const VerifyEmailPage: React.FC = () => {
     }
 
     axios
-      .post(`${apiBaseUrl}/verify-email`, { verification_code: token })
+      .post(`/api/verify-email`, { verification_code: token })
       .then((response) => {
         const res = response.data;
         console.log('response ---- ', res);
