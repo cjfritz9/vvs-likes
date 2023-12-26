@@ -327,9 +327,6 @@ export async function emailVerificaton(req: NextRequest) {
 
     const baseUrl = apiBaseUrl.slice(0, -4)
 
-
-    console.log({baseUrl})
-
     const emailMessage = `<html><body>Please click <a href="${baseUrl}/verifyemail?code=${verificationCode}">here</a> to confirm your email address and receive your 50 free likes!</body></html>`;
 
     MailService.sendEmail({
