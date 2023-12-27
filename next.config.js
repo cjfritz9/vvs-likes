@@ -1,9 +1,7 @@
-require('dotenv').config();
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [toRemotePattern('https://cdn.botdef.com/**')]
+    remotePatterns: [toRemotePattern(process.env.IG_CMS_IMAGE_PATTERN)]
   },
   redirects: async () => [
     {
@@ -17,7 +15,6 @@ const nextConfig = {
 };
 
 function toRemotePattern(urlString) {
-  console.log({ urlString });
   const url = new URL(urlString);
 
   return {
