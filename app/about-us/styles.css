@@ -1,0 +1,34 @@
+input.form-control.get-likes-input:focus {
+    z-index: 0 !important;
+}
+
+@media screen and (max-width: 1024px) {
+
+    .about {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+
+    .about p {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+    .why-vv,
+    .mission {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .about-main {
+        margin: 0 10px !important;
+    }
+
+    .about {
+        padding: 40px 20px !important;
+    }
+}

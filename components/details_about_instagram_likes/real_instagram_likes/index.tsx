@@ -325,7 +325,7 @@ const RealInstagramLikes = (props: IProps) => {
                         </label>
                         <span
                           style={{
-                            backgroundColor: 'yellow',
+                            backgroundColor: '#FACC05',
                             color: '#0863EB',
                             padding: '4px 8px 4px 8px',
                             marginTop: '5px',

@@ -100,7 +100,7 @@ const PackageDetailsModal = (props: IProps) => {
                               {" "}
                               <span
                                 style={{
-                                  backgroundColor: "yellow",
+                                  backgroundColor: "#FACC05",
                                   color: "#0863eb",
                                   padding: "4px 8px 4px 8px",
                                   marginRight: "41px",
