@@ -1,36 +1,36 @@
-import { useState } from "react";
-import PackageList from "../../../components/package_list";
+import { useState } from 'react';
+import PackageList from '@/components/package_list';
 
 const FreeAutomaticLikesArray = [
   {
-    name: "50-75 likes Per Post. Monthly Gifts",
-    price: ["$3.33", "$7.99", "$109.50"],
-    save: "save 15%",
-    id: "1",
+    name: '50-75 likes Per Post. Monthly Gifts',
+    price: ['$3.33', '$7.99', '$109.50'],
+    save: 'save 15%',
+    id: '1'
   },
   {
-    name: "110-185 likes Per Post. Weekly Gifts",
-    price: ["$5.77", "$19.99", "$199.11"],
-    save: "save 20%",
-    id: "2",
+    name: '110-185 likes Per Post. Weekly Gifts',
+    price: ['$5.77', '$19.99', '$199.11'],
+    save: 'save 20%',
+    id: '2'
   },
   {
-    name: "1k-1.4k likes Per Post. Daily Gifts",
-    price: ["$24.77", "$29.99", "$849.01"],
-    save: "save 30%",
-    id: "3",
+    name: '1k-1.4k likes Per Post. Daily Gifts',
+    price: ['$24.77', '$29.99', '$849.01'],
+    save: 'save 30%',
+    id: '3'
   },
   {
-    name: "7.7k-11.1k likes Per Post. Premium Baller Gifts",
-    price: ["$133.33", "$420.69", "$4200.69"],
-    save: "save 35%",
-    id: "4",
-  },
+    name: '7.7k-11.1k likes Per Post. Premium Baller Gifts',
+    price: ['$133.33', '$420.69', '$4200.69'],
+    save: 'save 35%',
+    id: '4'
+  }
 ];
 
 const AutomaticLikesPackage = () => {
-  const [isSelectedRadio, setIsSelectedRadio] = useState("");
-  const [selected, setSelected] = useState("");
+  const [isSelectedRadio, setIsSelectedRadio] = useState('');
+  const [selected, setSelected] = useState('');
 
   const handleChangeRadio = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { value, id } = e.target;
@@ -41,72 +41,78 @@ const AutomaticLikesPackage = () => {
 
   return (
     <>
-      <div className="packages">
+      <div className='packages'>
         <span
           style={{
-            backgroundColor: "#dce7f7",
-            color: "#0863eb",
-            padding: "4px 8px",
-            borderRadius: "12px !important",
-            fontSize: "16px",
-            fontWeight: "700",
+            backgroundColor: '#dce7f7',
+            color: '#0863eb',
+            padding: '4px 8px',
+            borderRadius: '12px !important',
+            fontSize: '16px',
+            fontWeight: '700'
           }}
-          className="badge rounded-pill"
+          className='badge rounded-pill'
         >
-          {"Weekly"}
+          {'Weekly'}
         </span>
 
-        <div className="badge-pill">
+        <div className='badge-pill' style={{ position: 'relative' }}>
           <span
             style={{
-              backgroundColor: "#FACC05",
-              color: "#0863eb",
-              padding: "8px",
-              borderRadius: "10px !important",
+              backgroundColor: '#FACC05',
+              color: '#0863eb',
+              padding: '4px',
+              borderRadius: '10px !important',
+              position: 'absolute',
+              top: '-12px',
+              right: '-16px'
             }}
-            className="badge rounded-pill pill-above"
+            className='badge rounded-pill pill-above'
           >
-            {"-18%"}
+            {'-18%'}
           </span>
           <span
             style={{
-              backgroundColor: "#dce7f7",
-              color: "#0863eb",
-              padding: "4px 8px",
-              borderRadius: "12px !important",
-              fontSize: "16px",
-              fontWeight: "700",
+              backgroundColor: '#dce7f7',
+              color: '#0863eb',
+              padding: '4px 8px',
+              borderRadius: '12px !important',
+              fontSize: '16px',
+              fontWeight: '700'
             }}
-            className="badge rounded-pill"
+            className='badge rounded-pill'
           >
-            {"Monthly"}
+            {'Monthly'}
           </span>
         </div>
 
-        <div className="badge-pill">
+        <div className='badge-pill' style={{ position: 'relative' }}>
           <span
             style={{
-              backgroundColor: "#FACC05",
-              color: "#0863eb",
-              padding: "8px",
-              borderRadius: "10px !important",
+              backgroundColor: '#FACC05',
+              color: '#0863eb',
+              padding: '4px',
+              borderRadius: '10px !important',
+              position: 'absolute',
+              top: '-12px',
+              right: '-16px'
             }}
-            className="badge rounded-pill pill-above"
+            className='badge rounded-pill pill-above'
           >
-            {"-34%"}
+            {'-34%'}
           </span>
           <span
             style={{
-              backgroundColor: "#dce7f7",
-              color: "#0863eb",
-              padding: "4px 8px",
-              borderRadius: "12px !important",
-              fontSize: "16px",
-              fontWeight: "700",
+              backgroundColor: '#dce7f7',
+              color: '#0863eb',
+              padding: '4px 8px',
+              borderRadius: '12px !important',
+              fontSize: '16px',
+              fontWeight: '700'
             }}
-            className="badge rounded-pill"
+            className='badge rounded-pill'
           >
-            {"Annually"}
+            {'Annually'}
           </span>
         </div>
       </div>
@@ -115,18 +121,22 @@ const AutomaticLikesPackage = () => {
         selected={selected}
         handleChangeRadio={handleChangeRadio}
         isSelectedRadio={isSelectedRadio}
-        heading={"What are Instagram likes and why are they important?"}
+        heading={'What are Instagram likes and why are they important?'}
         content={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
         }
-        saveUpto={"Save up to 70%"}
+        saveUpto={'Save up to 70%'}
         instantlyDelivery={[
-          <span key={0} className="instant-like">1k-1.4</span>,
-          "  Likes Per Post Charged ",
-          <span key={1} className="instant-like">Monthly $29.99 </span>,
+          <span key={0} className='instant-like'>
+            1k-1.4
+          </span>,
+          '  Likes Per Post Charged ',
+          <span key={1} className='instant-like'>
+            Monthly $29.99{' '}
+          </span>
         ]}
-        btnText={"Subscribe"}
-        savingPillData={"-41% Savings"}
+        btnText={'Subscribe'}
+        savingPillData={'-41% Savings'}
       />
       {/* <div
         className="d-flex gap-3 mobile_flex"

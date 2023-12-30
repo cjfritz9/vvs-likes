@@ -180,12 +180,10 @@ const HeaderBar = () => {
                         borderRadius: '25px'
                       }}
                       type='button'
-                      onClick={() => {
-                        console.log('===========click');
-                      }}
                     >
                       Auto Likes Pro
                       <button
+                        className='button-badges'
                         style={{
                           position: 'absolute',
                           background: '#FACC05',
@@ -224,6 +222,7 @@ const HeaderBar = () => {
                     >
                       Free Likes
                       <button
+                        className='button-badges'
                         style={{
                           position: 'absolute',
                           background: '#FACC05',
@@ -320,17 +319,6 @@ const HeaderBar = () => {
                   >
                     Pricing Plan
                   </a>
-                  <a
-                    className={state.aboutLinkClass}
-                    href='/how-to-work'
-                    onClick={() =>
-                      state.aboutLinkClass === 'nav-item nav-link'
-                        ? 'nav-item nav-link active'
-                        : 'nav-item nav-link'
-                    }
-                  >
-                    How To Works
-                  </a>
 
                   <a
                     className={state.aboutLinkClass}
@@ -345,14 +333,14 @@ const HeaderBar = () => {
                   </a>
                   <a
                     className={state.aboutLinkClass}
-                    href='/blog'
+                    href='/blogs'
                     onClick={() =>
                       state.aboutLinkClass === 'nav-item nav-link'
                         ? 'nav-item nav-link active'
                         : 'nav-item nav-link'
                     }
                   >
-                    Blog
+                    Blogs
                   </a>
                   <button
                     className='btn text-white'

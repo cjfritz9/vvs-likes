@@ -6,6 +6,8 @@ import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, ToastContainer, toast } from 'react-toastify';
 import { useReCaptcha } from 'next-recaptcha-v3';
+import Image from 'next/image';
+import packagesHero from '@/assets/images/packages-hero.png';
 
 export interface IFreeTrial {
   success: boolean;
@@ -146,10 +148,7 @@ const RealInstagramLikes = (props: IProps) => {
         'g-recaptcha-response': recaptchaToken
       };
 
-      res = await axios.post<IFreeTrial>(
-        `/api/free-instagram-likes`,
-        payload
-      );
+      res = await axios.post<IFreeTrial>(`/api/free-instagram-likes`, payload);
 
       if (res.data.success === false) {
         toast.error(res.data.message, toastOptions);
@@ -369,34 +368,39 @@ const RealInstagramLikes = (props: IProps) => {
               >
                 Buy Likes
               </h3>
-
-              <PackageList
-                packagelistArray={realLikesArray}
-                selected={selected}
-                handleChangeRadio={handleChangeRadio}
-                isSelectedRadio={isSelectedRadio}
-                heading={'View All Packages'}
-                content={
+              <div
+                className='packages-wrapper'
+                style={{ display: 'flex', width: '100%' }}
+              >
+                <div style={{ flexGrow: 1 }}>
                   <PackageList
-                    packagelistArray={realLikesArrayOther}
+                    packagelistArray={realLikesArray}
                     selected={selected}
                     handleChangeRadio={handleChangeRadio}
                     isSelectedRadio={isSelectedRadio}
+                    heading={'View All Packages'}
+                    content={
+                      <PackageList
+                        packagelistArray={realLikesArrayOther}
+                        selected={selected}
+                        handleChangeRadio={handleChangeRadio}
+                        isSelectedRadio={isSelectedRadio}
+                        btnText={'Buy Now'}
+                      />
+                    }
+                    saveUpto={'Save up to 70%'}
+                    instantlyDelivery={[<></>]}
                     btnText={'Buy Now'}
                   />
-                }
-                saveUpto={'Save up to 70%'}
-                instantlyDelivery={[
-                  <span key={0} className='instant-like'>
-                    250
-                  </span>,
-                  ' Real Likes Delivered instantly, ',
-                  <span key={1} className='instant-like'>
-                    29.99
-                  </span>
-                ]}
-                btnText={'Buy Now'}
-              />
+                </div>
+                <Image
+                  src={packagesHero}
+                  height={460}
+                  width={476}
+                  style={{ alignSelf: 'center' }}
+                  alt='Instagram likes in real time'
+                />
+              </div>
             </div>
           </div>
         </div>

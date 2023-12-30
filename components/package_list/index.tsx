@@ -3,6 +3,7 @@ import downArrow from '@/assets/svg/down_arrow.svg';
 import { IPackage } from '@/components/details_about_instagram_likes/real_instagram_likes';
 import Image from 'next/image';
 import useIsClient from '@/lib/hooks/useIsClient';
+import '@/styles/packages.css'
 
 interface IProps {
   packagelistArray: IPackage[];
@@ -36,55 +37,81 @@ const PackageList = (props: IProps) => {
 
   const location = window.location.pathname;
   return (
-    <>
+    <div>
       {packagelistArray.map((item, index) => {
         return (
           <div
             className={item.price?.length !== 1 ? 'pl-2' : 'pl-3'}
             style={{
+              width: '100%',
+              flexGrow: 1,
               backgroundColor: selected === item.id ? '#c5d6f2' : '#f3f6fc',
               marginBottom: '16px',
               borderRadius: '10px'
             }}
             key={index}
           >
-            <div className='form-check d-flex justify-content-between align-items-center'>
+            <div className='d-flex justify-content-between form-check align-items-center'>
               <div
                 className='d-flex justify-content-between align-items-center'
                 style={{
-                  gap: '10px'
+                  gap: '6px',
+                  width: '100%'
                 }}
               >
-                <input
-                  className='form-check-input'
-                  type='radio'
-                  value={item.name}
-                  name={item.name}
-                  onChange={handleChangeRadio}
-                  style={{
-                    margin: '12px 0px',
-                    backgroundColor: selected === item.id ? '#FF3E6C' : 'white',
-                    boxShadow: 'none',
-                    border:
-                      selected === item.id
-                        ? 'transparent'
-                        : '1px solid #02111b',
-                    height: '24px',
-                    width: '24px'
-                  }}
-                  checked={isSelectedRadio === item.name}
-                  id={item.id}
-                />
-                <label
-                  className='form-check-label ms-2'
-                  style={{
-                    fontSize: '18px',
-                    fontWeight: '600',
-                    color: '#02111B'
-                  }}
-                >
-                  {item.name}
-                </label>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <input
+                    className='form-check-input'
+                    type='radio'
+                    value={item.name}
+                    name={item.name}
+                    onChange={handleChangeRadio}
+                    style={{
+                      margin: '12px 0px',
+                      backgroundColor:
+                        selected === item.id ? '#FF3E6C' : 'white',
+                      boxShadow: 'none',
+                      border:
+                        selected === item.id
+                          ? 'transparent'
+                          : '1px solid #02111b',
+                      height: '24px',
+                      width: '24px'
+                    }}
+                    checked={isSelectedRadio === item.name}
+                    id={item.id}
+                  />
+                  <label
+                    className='form-check-label ms-2'
+                    style={{
+                      fontSize: '18px',
+                      fontWeight: '600',
+                      color: '#02111B'
+                    }}
+                  >
+                    {item.name}:
+                  </label>
+                  <div className='packages pkgs-2'>
+                    {item?.price &&
+                      item?.price.map((price, i) => {
+                        return (
+                          <button
+                            key={i}
+                            className='btn rounded-3'
+                            style={{
+                              padding: 0,
+                              border: '',
+                              color: '#02111B',
+                              background: 'transparent',
+                              fontWeight: '700'
+                            }}
+                          >
+                            {price}
+                          </button>
+                        );
+                      })}
+                  </div>
+                </div>
                 <span
                   style={{
                     backgroundColor: '#dce7f7',
@@ -92,50 +119,14 @@ const PackageList = (props: IProps) => {
                     padding: '4px 8px',
                     borderRadius: '12px !important',
                     fontSize: '16px',
-                    fontWeight: '700'
+                    fontWeight: '700',
+                    justifySelf: 'flex-end',
+                    marginRight: '12px'
                   }}
                   className='badge rounded-pill'
                 >
-                  {item.save}
+                  Save {item.save}
                 </span>
-
-                {selected === item.id && (
-                  <span
-                    style={{
-                      backgroundColor: '#FACC05',
-                      color: '#0863eb',
-                      padding: '4px 8px 4px 8px',
-                      height: 'fit-content',
-                      fontSize: '16px',
-                      fontWeight: '700'
-                    }}
-                    className='badge rounded-pill'
-                  >
-                    {'Best value'}
-                  </span>
-                )}
-              </div>
-
-              <div className='packages pkgs-2'>
-                {item?.price &&
-                  item?.price.map((btntext, i) => {
-                    return (
-                      <button
-                        key={i}
-                        className='btn rounded-3'
-                        style={{
-                          border:
-                            selected === item.id ? '4px solid #FF3E6C' : '',
-                          color: selected === item.id ? 'white' : '#02111B',
-                          background:
-                            selected === item.id ? '#FF3E6C' : 'transparent',
-                          fontWeight: '700'
-                        }}
-                      >
-                        {btntext}
-                      </button>
-                    );
-                  })}
               </div>
             </div>
           </div>
@@ -216,7 +207,7 @@ const PackageList = (props: IProps) => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default PackageList;

@@ -112,7 +112,7 @@ const Footer = () => {
                     marginBottom: 0
                   }}
                 >
-                  Support@vvslike.com
+                  Support@vvslikes.com
                 </p>
               </div>
               <div
