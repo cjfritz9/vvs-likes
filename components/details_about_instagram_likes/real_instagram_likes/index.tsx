@@ -165,7 +165,6 @@ const RealInstagramLikes = (props: IProps) => {
       setErrors({ emailError: '', userNameError: '' });
     } catch (error) {
       // setIsLoading(false);
-      console.log({ error });
       toast.error(
         //@ts-ignore
         typeof error === 'string' ? error : error.response.data.error,

@@ -9,7 +9,6 @@ const VerifyEmailPage: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get('code');
-  console.log({ token })
   const [status, setStatus] = useState(false);
 
   useEffect(() => {
@@ -22,7 +21,6 @@ const VerifyEmailPage: React.FC = () => {
       .post(`/api/verify-email`, { verification_code: token })
       .then((response) => {
         const res = response.data;
-        console.log('response ---- ', res);
         if (res.status) {
           setStatus(true);
         } else {
@@ -32,7 +30,6 @@ const VerifyEmailPage: React.FC = () => {
       })
       .catch((error) => {
         const res = error.response.data;
-        console.log({ res })
         alert(res.message);
         router.push('/');
         return;

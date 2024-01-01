@@ -17,7 +17,6 @@ const TimerAndProgressBar = (props: IProps) => {
   const totalTime = 12;
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
-  console.log({ isLoading }); // TODO
 
   const getVerifyEmail = async () => {
     setIsLoading(true);

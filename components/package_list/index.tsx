@@ -42,7 +42,6 @@ const PackageList = (props: IProps) => {
   return (
     <div>
       {packagelistArray.map((item, index) => {
-        console.log({ item });
         return (
           <div
             className={item.price?.length !== 1 ? 'pl-2' : 'pl-3'}
