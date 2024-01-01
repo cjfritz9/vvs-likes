@@ -1,11 +1,11 @@
-.jobs-uppersection{
-    height: 436px;
-    width: 770px;
-    border-radius: 25px;
-    margin: 80px auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+.jobs-uppersection {
+  height: 436px;
+  width: 770px;
+  border-radius: 25px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* .jobs-description{
@@ -13,154 +13,149 @@
     width: 770px;
 } */
 
-.jobs-description p{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    text-align: center;
-    color:#6B7175;
+.jobs-description p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  text-align: center;
+  color: #6b7175;
 }
 
-
-.jobs-button{
-    background: rgb(255, 62, 108);
-    width: 144px; 
-    height: 50px; 
-    font-weight: 700;
-    border-radius: 50px;
-    color: white;
-    border:none;
+.jobs-button {
+  background: rgb(255, 62, 108);
+  width: 144px;
+  height: 50px;
+  font-weight: 700;
+  border-radius: 50px;
+  color: white;
+  border: none;
 }
 
-
-.jobs-header h1{
-    font-weight: 600;
-    font-size: 36px;
-    line-height: 46px;
-    text-align: center;
+.jobs-header h1 {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 46px;
+  text-align: center;
 }
 
-.jobs-lowersection{
-    background-color: #0D57C6;
-    /* width: 1240px;
+.jobs-lowersection {
+  background-color: #0d57c6;
+  /* width: 1240px;
     height: 975px; */
 }
 
 .jobs-positions {
-    padding: 80px 100px;
+  padding: 80px 100px;
 }
 
-.jobs-position-content{
-    background-color: #FFFFFF;
-    margin: 35px 50px 35px 146px;
-    border-radius: 10px;
-    margin:auto;
+.jobs-position-content {
+  background-color: #ffffff;
+  margin: 35px 50px 35px 146px;
+  border-radius: 10px;
+  margin: auto;
 }
 
 .jobs-position-header {
-    margin: auto;
-    padding: 2rem 3rem;
+  margin: auto;
+  padding: 2rem 3rem;
 }
 
-.jobs-position-content h1{
-    font-size: 36px;
-    line-height: 46px;
-    text-align: center;
-    font-weight: 600;
+.jobs-position-content h1 {
+  font-size: 36px;
+  line-height: 46px;
+  text-align: center;
+  font-weight: 600;
 }
 
 .jobs-accordion {
-    padding: 1rem 3rem;
+  padding: 1rem 3rem;
 }
 .accordion {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.accordion-item{
-    background-color: #F3F7FC;
+.accordion-item {
+  background-color: #f3f7fc;
 }
-
 
 /* .accordion-button:after {
     background-color: #FF3E6C !important;
 
 } */
 button.accordion-button.collapsed {
-    height: 64px;
-    background-color: #0D57C60D;
+  height: 64px;
+  background-color: #0d57c60d;
 }
 
-.accordion-item p{
-    text-align: left;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    color: #6B7175;
+.accordion-item p {
+  text-align: left;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  color: #6b7175;
 }
 
 .accordion-item h4 {
-    text-align: left;
-    /* padding: 1rem; */
-    font-size: 18px;
-    color: #02111B;
+  text-align: left;
+  /* padding: 1rem; */
+  font-size: 18px;
+  color: #02111b;
 }
 
-.accordion-item .container{
-    background-color: #F3F7FC;
-    padding: 2rem;
+.accordion-item .container {
+  background-color: #f3f7fc;
+  padding: 2rem;
 }
 .accordion-item h4 strong {
-    font-size: 20px;
+  font-size: 20px;
 }
 .accordion-item ul p {
-    line-height: 16px;
-    line-height: 32px;
-    margin-bottom: 0px;
+  line-height: 16px;
+  line-height: 32px;
+  margin-bottom: 0px;
 }
 ul {
-    padding-left: 17px !important;
+  padding-left: 17px !important;
 }
 .accordion-body {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 .content_block ul {
-    margin-left: 7px;
+  margin-left: 7px;
 }
 .jobs-positions {
-    padding: 80px 0px;
-    width: 95%;
-    margin: auto;
-    max-width: 1362px;
+  padding: 80px 0px;
+  width: 95%;
+  margin: auto;
+  max-width: 1362px;
 }
-
 
 /* media query */
 
-@media screen and (max-width: 768px){
-
-.jobs-description {
+@media screen and (max-width: 768px) {
+  .jobs-description {
     padding: 0 30px;
-}
+  }
 
-.jobs-positions {
+  .jobs-positions {
     padding: 80px 40px;
-}
-.jobs-position-header {
+  }
+  .jobs-position-header {
     padding: 1rem;
-}
-.jobs-accordion {
+  }
+  .jobs-accordion {
     padding: 1rem;
-}
-.jobs-uppersection {
+  }
+  .jobs-uppersection {
     height: auto;
     width: auto;
-}
+  }
 }
 
-@media screen and (max-width: 375px){
-.jobs-positions {
+@media screen and (max-width: 375px) {
+  .jobs-positions {
     padding: 40px 20px;
-}
+  }
 }

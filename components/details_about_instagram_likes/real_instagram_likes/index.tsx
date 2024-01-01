@@ -187,17 +187,18 @@ const RealInstagramLikes = (props: IProps) => {
                   color: '#02111B'
                 }}
               >
-                Get Started With Real Instagram Likes
+                Get Started With Real Instagram Likes 😊
               </h3>
               <p
                 style={{
                   lineHeight: '24px',
-                  color: '#6B7175'
+                  color: '#6B7175',
+                  textAlign: 'justify'
                 }}
               >
-                At VVSLikes, you can buy Instagram likes that deliver within
-                minutes. Explore our free trial below, or subscribe to our
-                automatic likes service.
+                <b>Receive free Instagram likes every 24 hours:</b> just submit
+                your username and email, select posts, verify your valid email,
+                and get likes quickly.
               </p>
             </div>
 
@@ -206,6 +207,7 @@ const RealInstagramLikes = (props: IProps) => {
               data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY}
               data-callback='onSubmit'
               data-action='submit'
+              style={{ padding: '0px 6px' }}
             >
               <h3
                 className='text-start'
@@ -218,27 +220,61 @@ const RealInstagramLikes = (props: IProps) => {
                 Free Trial
               </h3>
               <div
+                className='pl-2'
                 style={{
-                  border: '1px solid #0d57c6',
-                  borderRadius: '10px',
-                  lineHeight: '28px',
-                  marginTop: '32px',
-                  backgroundColor: '#f3f6fc'
+                  backgroundColor: '#c5d6f2',
+                  borderRadius: '10px'
                 }}
               >
-                <div style={{ padding: '24px' }}>
+                <div className='form-check d-flex justify-content-between'>
+                  <div
+                    className='d-flex justify-content-between align-items-center'
+                    style={{
+                      gap: '12px'
+                    }}
+                  >
+                    <div
+                      className='form-check-label'
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        fontSize: '18px',
+                        fontWeight: '600',
+                        height: '48px'
+                      }}
+                    >
+                      Free 10-50 Real Likes
+                    </div>
+                    <span
+                      style={{
+                        backgroundColor: '#FACC05',
+                        color: '#0863EB',
+                        padding: '4px 8px 4px 8px',
+                        marginTop: '5px',
+                        fontSize: '16px',
+                        fontWeight: '700'
+                      }}
+                      className='badge rounded-pill'
+                    >
+                      Daily Free Trial
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div
+                style={{
+                  lineHeight: '28px',
+                  marginTop: '32px'
+                }}
+              >
+                <div>
                   <div className='d-flex'>
                     <div className='col-md-6 mb-3'>
-                      <label
-                        className='form-label d-flex'
-                        style={{ color: '#02111B' }}
-                      >
-                        User name:
-                      </label>
                       <input
                         style={{
                           width: '97%',
-                          color: '#6B7175',
+                          color: '#02111B',
+                          fontSize: '16px',
                           border: errors.userNameError && '2px solid red'
                         }}
                         name='user_name'
@@ -258,16 +294,11 @@ const RealInstagramLikes = (props: IProps) => {
                       )}
                     </div>
                     <div className='col-md-6 mb-3'>
-                      <label
-                        className='form-label d-flex'
-                        style={{ color: '#02111B' }}
-                      >
-                        Email:
-                      </label>
                       <input
                         style={{
                           width: '97%',
-                          color: '#6B7175',
+                          color: '#02111B',
+
                           border: errors.emailError && '2px solid red'
                         }}
                         type='email'
@@ -288,75 +319,35 @@ const RealInstagramLikes = (props: IProps) => {
                     </div>
                   </div>
                   <div
-                    className='pl-2'
                     style={{
-                      backgroundColor: '#c5d6f2',
-                      borderRadius: '10px'
+                      display: 'flex',
+                      justifyContent: 'right',
+                      width: '100%'
                     }}
                   >
-                    <div className='form-check d-flex justify-content-between'>
-                      <div
-                        className='d-flex justify-content-between align-items-center'
-                        style={{
-                          gap: '11px'
-                        }}
-                      >
-                        <input
-                          className='form-check-input'
-                          type='radio'
-                          id={'real-likes'}
-                          value={'real-likes'}
-                          onChange={handleChangeRadio}
-                          name={'real-likes'}
-                          style={{
-                            margin: '12px 0px',
-                            backgroundColor: '#FF3E6C',
-                            boxShadow: 'none',
-                            border: 'transparent'
-                          }}
-                          checked={isSelectedRadio === 'real-likes'}
-                        />
-                        <label
-                          className='form-check-label ms-2'
-                          style={{ fontSize: '18px', fontWeight: '600' }}
-                        >
-                          10-50 Real Likes
-                        </label>
-                        <span
-                          style={{
-                            backgroundColor: '#FACC05',
-                            color: '#0863EB',
-                            padding: '4px 8px 4px 8px',
-                            marginTop: '5px',
-                            fontSize: '16px',
-                            fontWeight: '700'
-                          }}
-                          className='badge rounded-pill'
-                        >
-                          {'Free'}
-                        </span>
-                      </div>
-
-                      <button
-                        className='btn rounded-3'
-                        style={{
-                          border: 'none',
-                          color: 'white',
-                          width: '210px',
-                          fontWeight: '700',
-                          fontSize: '14px',
-                          background: '#FF3E6C',
-                          opacity: 1
-                        }}
-                        disabled={!isFormValid()}
-                      >
-                        Get 50 Instagram Free Likes
-                      </button>
-                    </div>
+                    <button
+                      className='btn rounded-5'
+                      style={{
+                        border: 'none',
+                        color: 'white',
+                        // height: '50px',
+                        fontWeight: '700',
+                        fontSize: '16px',
+                        background: '#FF3E6C',
+                        opacity: 1,
+                        alignSelf: 'right',
+                        padding: '16px 20px'
+                      }}
+                      disabled={!isFormValid()}
+                    >
+                      Get My Free Likes
+                    </button>
                   </div>
                 </div>
               </div>
             </form>
+          </div>
+          <div className='bg-white get-started_block mobile_padding'>
             <div style={{ marginTop: '50px' }}>
               <h3
                 className='text-start'
@@ -397,7 +388,6 @@ const RealInstagramLikes = (props: IProps) => {
                   src={packagesHero}
                   height={460}
                   width={476}
-                  style={{ alignSelf: 'center' }}
                   alt='Instagram likes in real time'
                 />
               </div>

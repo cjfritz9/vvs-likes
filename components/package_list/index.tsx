@@ -3,7 +3,9 @@ import downArrow from '@/assets/svg/down_arrow.svg';
 import { IPackage } from '@/components/details_about_instagram_likes/real_instagram_likes';
 import Image from 'next/image';
 import useIsClient from '@/lib/hooks/useIsClient';
-import '@/styles/packages.css'
+import '@/styles/packages.css';
+import { useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 interface IProps {
   packagelistArray: IPackage[];
@@ -18,6 +20,7 @@ interface IProps {
   savingPillData?: any;
 }
 const PackageList = (props: IProps) => {
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const {
     packagelistArray,
     selected,
@@ -39,6 +42,7 @@ const PackageList = (props: IProps) => {
   return (
     <div>
       {packagelistArray.map((item, index) => {
+        console.log({ item });
         return (
           <div
             className={item.price?.length !== 1 ? 'pl-2' : 'pl-3'}
@@ -59,7 +63,9 @@ const PackageList = (props: IProps) => {
                   width: '100%'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+                >
                   <input
                     className='form-check-input'
                     type='radio'
@@ -135,14 +141,24 @@ const PackageList = (props: IProps) => {
       {content && (
         <div>
           <div className='form-check reallike-main-acc'>
-            <div className='d-flex justify-content-between align-items-center reallike-acc'>
+            <div
+              className='d-flex justify-content-between align-items-center reallike-acc'
+              style={isAccordionOpen ? { borderColor: 'transparent' } : {}}
+              onClick={() => setIsAccordionOpen(true)}
+            >
               <Accordion className='reallike-accordion w-100'>
                 <Accordion.Item eventKey='0'>
-                  <Accordion.Header>
-                    <Image src={downArrow} alt='downArrow' />
+                  <Accordion.Header
+                    style={isAccordionOpen ? { display: 'none' } : {}}
+                  >
+                    <div>
+                      {isAccordionOpen ? <FaChevronUp /> : <FaChevronDown />}
+                    </div>
                     {heading}
                   </Accordion.Header>
-                  <Accordion.Body>{content}</Accordion.Body>
+                  <Accordion.Body style={isAccordionOpen ? { padding: 0 } : {}}>
+                    {content}
+                  </Accordion.Body>
                 </Accordion.Item>
               </Accordion>
 
