@@ -40,7 +40,7 @@ const PackageList = (props: IProps) => {
 
   const location = window.location.pathname;
   return (
-    <div>
+    <div style={{ width: '100%'}}>
       {packagelistArray.map((item, index) => {
         return (
           <div

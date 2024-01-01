@@ -425,6 +425,7 @@ p.text-start.text-white.banner_dis {
   }
 
   .get-started_block.mobile_padding .form-check {
+    width: 100%;
     flex-direction: column;
     text-align: center;
     align-items: center;

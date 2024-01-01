@@ -362,7 +362,7 @@ const RealInstagramLikes = (props: IProps) => {
                 className='packages-wrapper'
                 style={{ display: 'flex', width: '100%' }}
               >
-                <div style={{ flexGrow: 1 }}>
+                <div style={{ display: 'flex', flexGrow: 1 }}>
                   <PackageList
                     packagelistArray={realLikesArray}
                     selected={selected}
