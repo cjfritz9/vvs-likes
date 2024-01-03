@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import React, { useEffect } from 'react';
 import '@/styles/Blog.css';
 import Pagination from 'react-bootstrap/Pagination';
@@ -8,7 +8,7 @@ import blogData, { IBlogMetadata } from '@/assets/data/blogData';
 import Blogcards from '@/components/blogCard/Blogcards';
 
 const BlogsPage: React.FC = () => {
-  const router = useRouter();
+  const location = usePathname();
 
   const handleCardDetails = (blogCardData: IBlogMetadata) => {
     if (blogCardData) {
@@ -16,7 +16,7 @@ const BlogsPage: React.FC = () => {
       router.push('/blogs/blogdetails');
     }
   };
-  
+
   useEffect(() => {
     localStorage.removeItem('blogCarddetails');
   }, []);

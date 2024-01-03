@@ -349,15 +349,27 @@ const RealInstagramLikes = (props: IProps) => {
           <div className='bg-white get-started_block mobile_padding'>
             <div style={{ marginTop: '50px' }}>
               <h3
+                className='text-center'
+                style={{ fontSize: '36px', fontWeight: 600 }}
+              >
+                Instantly Buy Real Instagram Likes 🎉
+              </h3>
+              <p className='text-center'>
+                At VVSLikes, you can buy Instagram likes that deliver within
+                minutes or subscribe to our <a href='/buy-automatic-instagram-likes'>automatic likes service</a> which sends
+                likes to every new post.
+              </p>
+              <p
                 className='text-start'
                 style={{
+                  fontSize: '24px',
                   fontWeight: '600',
                   marginBottom: '24px',
                   color: '#02111B'
                 }}
               >
                 Buy Likes
-              </h3>
+              </p>
               <div
                 className='packages-wrapper'
                 style={{ display: 'flex', width: '100%' }}

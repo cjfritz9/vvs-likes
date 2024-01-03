@@ -1,3 +1,5 @@
+'use client';
+
 import { Card } from 'react-bootstrap';
 import Image from 'next/image';
 import userImg from '@/assets/images/user-img.png';
@@ -7,13 +9,14 @@ import ManTestimonial1 from '@/assets/images/testimonial_man_1.png';
 import ManTestimonial4 from '@/assets/images/testimonial_man_4.jpg';
 import ManTestimonial5 from '@/assets/images/testimonial_man_5.jpg';
 import useIsClient from '@/lib/hooks/useIsClient';
+import { usePathname } from 'next/navigation';
 
 const TrustedByPeople = () => {
-  const { isClient } = useIsClient();
+  const location = usePathname();
+  // const { isClient } = useIsClient();
 
-  if (!isClient) return null;
-  
-  const location = window.location.pathname;
+  // if (!isClient) return null;
+
   const userDetails: {
     img: string;
     name: string;

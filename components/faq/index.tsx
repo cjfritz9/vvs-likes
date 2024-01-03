@@ -1,11 +1,15 @@
+'use client';
+
 import { Accordion } from 'react-bootstrap';
 import '@/styles/faq.css';
 import useIsClient from '@/lib/hooks/useIsClient';
+import { usePathname } from 'next/navigation';
 
 const Faq = () => {
-  const { isClient } = useIsClient();
-  if (!isClient) return null;
-  const location = window.location.pathname;
+  const location = usePathname();
+  // const { isClient } = useIsClient();
+  // if (!isClient) return null;
+
   return (
     <div className='faq-main'>
       <div

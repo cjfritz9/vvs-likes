@@ -24,7 +24,7 @@ const VvsLikesPricing = () => {
         <div className='vvpricing_header'>
           <h4
             className='text-center'
-            style={{ fontWeight: 'bold', fontSize: '36px;' }}
+            style={{ fontWeight: 'bold', fontSize: '36px' }}
           >
             VVS Likes pricing
           </h4>

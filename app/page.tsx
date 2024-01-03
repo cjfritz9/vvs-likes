@@ -17,7 +17,8 @@ import WebsiteTimerAutoAndBuy from '@/components/websiteTimerAutoAndBuy/WebsiteT
 import '@/styles/blog_details.css';
 import '@/styles/blogcards.css';
 import InstaPostModal from '@/components/modal/insta_posts_modal';
-import useIsClient from '@/lib/hooks/useIsClient';
+import { usePathname } from 'next/navigation';
+// import useIsClient from '@/lib/hooks/useIsClient';
 
 // import blog_img1 from "../../assets/images/blog_img1.png";
 // import blog_img2 from "../../assets/images/blog_img2.png";
@@ -33,13 +34,14 @@ export default function Home() {
   const [isInstaPost, setIsInstaPost] = useState(false);
   const [userData, setUserData] = useState();
   const [selectedImage, setSelectedImage] = useState({ code: '', id: '' });
+  const location = usePathname();
 
-  const { isClient } = useIsClient();
-  if (!isClient) {
-    return null;
-  }
+  // const { isClient } = useIsClient();
+  // if (!isClient) {
+  //   return null;
+  // }
 
-  const location = window.location.pathname;
+  
 
   return (
     <>

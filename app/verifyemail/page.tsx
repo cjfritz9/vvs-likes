@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const VerifyEmailPage: React.FC = () => {
-  const router = useRouter();
+  const location = usePathname();
   const searchParams = useSearchParams();
   const token = searchParams.get('code');
   const [status, setStatus] = useState(false);

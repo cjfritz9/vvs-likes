@@ -7,6 +7,7 @@ import { IoReorderThreeOutline } from 'react-icons/io5';
 import Image from 'next/image';
 import useIsClient from '@/lib/hooks/useIsClient';
 import '@/styles/header.css';
+import { usePathname } from 'next/navigation';
 
 const HeaderBar = () => {
   const [state, setState] = useState({
@@ -16,8 +17,9 @@ const HeaderBar = () => {
     aboutLinkClass: 'nav-item nav-link text-white',
     menuClass: ''
   });
+  const location = usePathname();
 
-  const { isClient } = useIsClient();
+  // const { isClient } = useIsClient();
 
   const toggleMenu = () => {
     setState({
@@ -27,11 +29,9 @@ const HeaderBar = () => {
   };
   const show = state.menu ? 'show' : '';
 
-  if (!isClient) {
-    return null;
-  }
-
-  const location = window.location.pathname;
+  // if (!isClient) {
+  //   return null;
+  // }
 
   return (
     <>
@@ -47,7 +47,7 @@ const HeaderBar = () => {
           }}
         >
           <a className='text-white' href='#'>
-            Save on Real Automatic Instagram Likes🗓️
+            Save on Real Automatic Instagram Likes 🗓️
           </a>
         </div>
       )}
@@ -170,11 +170,12 @@ const HeaderBar = () => {
                     satisfying buzz. Give our free trial a run & never settle
                     for fake engagement again.
                   </p>
-                  <div className='d-flex justify-content-start gap-3'>
+                  <div className='d-flex justify-content-start gap-3 header-buttons-wrapper'>
                     <a
                       href='/automatic-likes'
                       className='btn text-white'
                       style={{
+                        position: 'relative',
                         padding: '13px 20px',
                         background: '#FF3E6C',
                         borderRadius: '25px'
@@ -182,25 +183,26 @@ const HeaderBar = () => {
                       type='button'
                     >
                       Auto Likes Pro
-                      <button
+                      <span
                         className='button-badges'
                         style={{
                           position: 'absolute',
                           background: '#FACC05',
                           padding: '2px 5px',
-                          margin: '-25px -35px',
+                          top: '-14px',
+                          right: '-48px',
                           borderRadius: '25px',
                           border: 'none',
                           fontSize: '13px',
                           color: '#0764EB',
                           fontWeight: 'bold'
                         }}
-                        type='button'
                       >
                         Free Offers
-                      </button>
+                      </span>
                     </a>
-                    <button
+                    <a
+                      href='/buy-automatic-instagram-likes'
                       className='btn text-white '
                       style={{
                         background: '#FF3E6C',
@@ -210,10 +212,12 @@ const HeaderBar = () => {
                       type='button'
                     >
                       Buy Real Instagram Likes
-                    </button>
-                    <button
+                    </a>
+                    <a
+                      href='/automatic-likes'
                       className='btn text-white '
                       style={{
+                        position: 'relative',
                         background: '#FF3E6C',
                         padding: '13px 20px',
                         borderRadius: '25px'
@@ -221,24 +225,24 @@ const HeaderBar = () => {
                       type='button'
                     >
                       Free Likes
-                      <button
+                      <span
                         className='button-badges'
                         style={{
                           position: 'absolute',
                           background: '#FACC05',
                           padding: '2px 5px',
-                          margin: '-25px -15px',
+                          top: '-14px',
+                          right: '-px',
                           borderRadius: '25px',
                           border: 'none',
                           fontSize: '15px',
                           color: '#0764EB',
                           fontWeight: 'bold'
                         }}
-                        type='button'
                       >
                         Trial
-                      </button>
-                    </button>
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>

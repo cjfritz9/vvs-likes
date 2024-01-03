@@ -125,12 +125,6 @@ button.accordion-button {
   gap: 16px;
 }
 
-@media screen and (max-width: 1280px) {
-  .button-badges {
-    display: none;
-  }
-}
-
 @media screen and (max-width: 992px) {
   button.navbar-toggler {
     border: none !important;
@@ -249,6 +243,15 @@ button.accordion-button {
   .featured-in-blog-section {
     /* padding: 2rem; */
     margin: inherit;
+  }
+
+  .header-buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .button-badges {
+    right: 0px !important;
   }
 }
 

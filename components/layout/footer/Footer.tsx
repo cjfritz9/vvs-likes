@@ -22,7 +22,7 @@ const Footer = () => {
                   lineHeight: '46px'
                 }}
               >
-                Get 50 Likes As For Free
+                Get 50 Likes For Free
               </h4>
               <p
                 className='text-start text-white'

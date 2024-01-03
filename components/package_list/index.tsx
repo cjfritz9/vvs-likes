@@ -1,11 +1,14 @@
+'use client';
+
 import { Accordion } from 'react-bootstrap';
 import downArrow from '@/assets/svg/down_arrow.svg';
 import { IPackage } from '@/components/details_about_instagram_likes/real_instagram_likes';
 import Image from 'next/image';
-import useIsClient from '@/lib/hooks/useIsClient';
+// import useIsClient from '@/lib/hooks/useIsClient';
 import '@/styles/packages.css';
 import { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
+import { usePathname } from 'next/navigation';
 
 interface IProps {
   packagelistArray: IPackage[];
@@ -33,14 +36,14 @@ const PackageList = (props: IProps) => {
     btnText,
     savingPillData
   } = props;
+  const location = usePathname();
 
-  const { isClient } = useIsClient();
+  // const { isClient } = useIsClient();
 
-  if (!isClient) return null;
+  // if (!isClient) return null;
 
-  const location = window.location.pathname;
   return (
-    <div style={{ width: '100%'}}>
+    <div style={{ width: '100%' }}>
       {packagelistArray.map((item, index) => {
         return (
           <div
