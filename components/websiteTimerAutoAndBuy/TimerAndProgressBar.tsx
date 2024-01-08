@@ -14,7 +14,7 @@ const TimerAndProgressBar = (props: IProps) => {
   const setIsThankYouModal = props.setIsThankYouModal;
   const selectedImage = props.selectedImage;
 
-  const totalTime = 12;
+  const totalTime = 120;
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 

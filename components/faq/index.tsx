@@ -39,7 +39,7 @@ const Faq = () => {
           <div className='col-md-12' style={{ marginTop: '40px' }}>
             <Accordion className='faq-accordion'>
               <Accordion.Item eventKey='0'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   Why does it help to buy likes on instagram?
                   <span>
                     <svg
@@ -65,7 +65,7 @@ const Faq = () => {
                 </Accordion.Body>
               </Accordion.Item>
               <Accordion.Item eventKey='1'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   Why choose VVSLikes for your Instagram likes?
                   <span>
                     <svg
@@ -92,7 +92,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='2'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   {' '}
                   How long does it take to get my likes?
                   <span>
@@ -117,7 +117,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='3'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   What are the secrets to a viral post?
                   <span>
                     <svg
@@ -142,7 +142,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='4'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   Is it safe to buy likes online?
                   <span>
                     <svg
@@ -169,7 +169,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='5'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   Will my likes drop?
                   <span>
                     <svg
@@ -195,7 +195,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='6'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   How should I pick a package?
                   <span>
                     <svg
@@ -220,7 +220,7 @@ const Faq = () => {
               </Accordion.Item>
 
               <Accordion.Item eventKey='7'>
-                <Accordion.Header>
+                <Accordion.Header as='h4'>
                   How do I go from zero to hero?
                   <span>
                     <svg

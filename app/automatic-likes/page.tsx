@@ -38,9 +38,9 @@ const AutomaticLikesPage: React.FC = () => {
                   <p>Members unlock exclusive benefits and rewards</p>
                 </div>
                 <div>
+                  {/* <h2></h2>
                   <h2></h2>
-                  <h2></h2>
-                  <h2></h2>
+                  <h2></h2> */}
                 </div>
                 <AutomaticLikesPackage />
               </div>

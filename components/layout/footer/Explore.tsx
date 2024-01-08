@@ -30,7 +30,7 @@ const Explore = () => {
             <a
               className="text-white"
               style={{ textDecoration: "none" }}
-              href="/blog"
+              href="/blogs"
             >
               Blog
             </a>

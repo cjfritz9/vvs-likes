@@ -33,26 +33,29 @@ const HeaderBar = () => {
   //   return null;
   // }
 
+  console.log(location)
+
   return (
     <>
-      {location !== '/' && (
-        <div
-          className='header-top'
-          style={{
-            background: '#F79410',
-            padding: '20px 0px',
-            gap: '10px',
-            width: '100%',
-            textAlign: 'center'
-          }}
-        >
-          <a className='text-white' href='#'>
-            Save on Real Automatic Instagram Likes 🗓️
-          </a>
-        </div>
-      )}
+      {location !== '/' &&
+        location !== '/en/buy-instagram-likes-free-trial' && (
+          <div
+            className='header-top'
+            style={{
+              background: '#F79410',
+              padding: '20px 0px',
+              gap: '10px',
+              width: '100%',
+              textAlign: 'center'
+            }}
+          >
+            <a className='text-white' href='#'>
+              Save on Real Automatic Instagram Likes 🗓️
+            </a>
+          </div>
+        )}
       <div className='container'>
-        {location === '/' ? (
+        {location === '/' || location === '/en/buy-instagram-likes-free-trial' ? (
           <>
             {' '}
             <nav className='navbar navbar-expand-lg'>
@@ -92,7 +95,7 @@ const HeaderBar = () => {
                     gap: '10px'
                   }}
                 >
-                  <a
+                  {/* <a
                     className={state.homeLinkClass}
                     href='/automatic-likes'
                     onClick={() =>
@@ -102,7 +105,7 @@ const HeaderBar = () => {
                     }
                   >
                     Automatic Likes
-                  </a>
+                  </a> */}
                   <a
                     className={state.aboutLinkClass}
                     href='/faq'
@@ -116,7 +119,7 @@ const HeaderBar = () => {
                   </a>
                   <a
                     className={state.aboutLinkClass}
-                    href='/blog'
+                    href='/blogs'
                     onClick={() =>
                       state.aboutLinkClass === 'nav-item nav-link'
                         ? 'nav-item nav-link active'
@@ -137,7 +140,7 @@ const HeaderBar = () => {
                   >
                     Support
                   </a>
-                  <button
+                  {/* <button
                     className='btn text-white'
                     style={{
                       background: '#FF3E6C',
@@ -149,7 +152,7 @@ const HeaderBar = () => {
                     type='button'
                   >
                     Members
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </nav>

@@ -1,3 +1,5 @@
+'use client';
+
 import Explore from './Explore';
 import Legal from './Legal';
 import Services from './Services';
@@ -6,8 +8,33 @@ import footerLogo from '@/assets/images/footer-logo.png';
 import countryFlag from '@/assets/images/country-flag.png';
 import '@/styles/footer.css';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 const Footer = () => {
+  useEffect(() => {
+    if (!window) return;
+    console.log('running');
+    (() => {
+      //@ts-ignore
+      var mmapiws = (window.__mmapiws = window.__mmapiws || {});
+      mmapiws.accountId = process.env.NEXT_PUBLIC_MAXMIND_ACCOUNT_ID!;
+      var loadDeviceJs = function () {
+        var element = document.createElement('script');
+        element.async = true;
+        element.src = 'https://device.maxmind.com/js/device.js';
+        document.body.appendChild(element);
+      };
+      if (window.addEventListener) {
+        window.addEventListener('load', loadDeviceJs, false);
+        //@ts-ignore
+      } else if (window.attachEvent) {
+        //@ts-ignore
+        window.attachEvent('onload', loadDeviceJs);
+      }
+      return null;
+    })();
+  }, []);
+
   return (
     <>
       <div style={{ background: '#0D57C6', padding: '0px 0px' }}>

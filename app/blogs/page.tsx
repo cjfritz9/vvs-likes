@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
 import '@/styles/Blog.css';
 import Pagination from 'react-bootstrap/Pagination';
@@ -8,7 +8,7 @@ import blogData, { IBlogMetadata } from '@/assets/data/blogData';
 import Blogcards from '@/components/blogCard/Blogcards';
 
 const BlogsPage: React.FC = () => {
-  const location = usePathname();
+  const router = useRouter();
 
   const handleCardDetails = (blogCardData: IBlogMetadata) => {
     if (blogCardData) {

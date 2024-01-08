@@ -150,7 +150,7 @@ const PackageList = (props: IProps) => {
             >
               <Accordion className='reallike-accordion w-100'>
                 <Accordion.Item eventKey='0'>
-                  <Accordion.Header
+                  <Accordion.Header as='p'
                     style={isAccordionOpen ? { display: 'none' } : {}}
                   >
                     <div>

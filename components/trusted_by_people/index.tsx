@@ -117,7 +117,7 @@ const TrustedByPeople = () => {
                           width={60}
                         />
                         <div>
-                          <h2
+                          <p
                             style={{
                               fontSize: '16px',
                               fontWeight: '700',
@@ -126,7 +126,7 @@ const TrustedByPeople = () => {
                             }}
                           >
                             {detail.name}
-                          </h2>
+                          </p>
                         </div>
                       </Card.Header>
 

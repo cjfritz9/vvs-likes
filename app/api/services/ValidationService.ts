@@ -1,9 +1,11 @@
 import { config } from '../config';
 import * as queryString from 'querystring';
 import * as axiosModule from 'axios';
+import * as minFraud from '@maxmind/minfraud-api-node';
 import { Logger } from '.';
 import { FreeTrialModel } from '../models/FreeTrialModel';
 import { AxiosResponse } from 'axios';
+import { TransactionProps } from '@maxmind/minfraud-api-node/dist/src/request/transaction';
 
 const logger = Logger.getLogger();
 const axios = axiosModule.default;
@@ -32,6 +34,8 @@ interface ISMMRajaOrder {
   link: string;
   quantity: number;
 }
+
+interface ITransaction {}
 
 function validateInstagramUsername(instagramUsername: string) {
   logger.info({
@@ -79,7 +83,7 @@ function createSMMRajaOrder(options: ISMMRajaOrder) {
   logger.info({ message: 'createSMMRajaOrder() triggered', options });
 
   return axios.post(smmRajaApi, null, {
-    params: { key: smmRajaKey, ...options}
+    params: { key: smmRajaKey, ...options }
   });
 }
 
@@ -89,8 +93,8 @@ async function verification(instagramUsername: string): Promise<IVerification> {
   try {
     const response: AxiosResponse<IVerification> =
       await validateInstagramUsername(instagramUsername);
-    
-    console.log({ response })
+
+    console.log({ response });
 
     if (response && (response.data.error || response.data.error_code)) {
       logger.error({
@@ -201,11 +205,47 @@ function recaptchaVerification(body: { 'g-recaptcha-response': string }) {
   });
 }
 
+const validateTransactionFraud = async (transactionData: TransactionProps) => {
+  // TODO - ADD MAXMIND MINFRAUD LOGIC HERE
+  // ref: https://github.com/maxmind/minfraud-api-node
+  try {
+    const client = new minFraud.Client(
+      config.maxMind.accountId,
+      config.maxMind.licenseKey
+    );
+    const transaction = new minFraud.Transaction(transactionData);
+
+    const minFraudScore = await client.score(transaction);
+    console.log({ minFraudScore });
+
+    const minFraudInsights = await client.insights(transaction);
+    console.log({ minFraudInsights });
+
+    const minFraudFactors = await client.factors(transaction);
+    console.log({ minFraudFactors });
+
+    if (minFraudScore.riskScore < 0.9) {
+      return {
+        success: false,
+        message: `Fraud Risk. Score: ${minFraudScore.riskScore}.`
+      };
+    } else {
+      return {
+        success: true,
+        message: `No fraud risk detected. Score: ${minFraudScore.riskScore}.`
+      };
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const ValidationService = {
   validateInstagramUsername,
   recaptchaVerification,
   fetchInstagramPosts,
   createSMMRajaOrder,
+  validateTransactionFraud,
   verification,
   isFreeTrialAllowed
 };

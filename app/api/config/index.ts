@@ -4,6 +4,10 @@ export const config = {
   rapidAPI: {
     key: process.env.RAPID_API_KEY!,
   },
+  maxMind: {
+    accountId: process.env.NEXT_PUBLIC_MAXMIND_ACCOUNT_ID!,
+    licenseKey: process.env.MAXMIND_LICENSE_KEY!
+  },
   smmRaja: {
     api: process.env.SMMRAJA_API!,
     key: process.env.SMMRAJA_KEY!,
