@@ -19,7 +19,7 @@ const VvsLikesPricing = () => {
     { label: 'Professional Support (Contact us any time)' }
   ];
   return (
-    <div className='pricing_wrap'>
+    <div id='pricing-container' className='pricing_wrap'>
       <div className='container' style={{ paddingTop: '80px 0px' }}>
         <div className='vvpricing_header'>
           <h4
@@ -42,42 +42,57 @@ const VvsLikesPricing = () => {
                 <h3>Real Likes</h3>
                 <p>Come back every day for up to 50 free likes</p>
               </div>
-              <div>
-                {leftArray.map((item, i) => {
-                  return (
-                    <div
-                      className='form-check form-check-inline d-flex justify-content-center aligin-item-start'
-                      key={i}
-                    >
-                      <span>
-                        <svg
-                          width='20'
-                          height='20'
-                          viewBox='0 0 20 20'
-                          fill='none'
-                          xmlns='http://www.w3.org/2000/svg'
-                        >
-                          <rect width='20' height='20' rx='10' fill='#0D57C6' />
-                          <path
-                            d='M14 7L8.5 12.5L6 10'
-                            stroke='white'
-                            strokeWidth='2.2'
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                          />
-                        </svg>
-                      </span>
-                      <label
-                        className='form-check-label'
-                        htmlFor='inlineCheckbox1'
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '410px',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <div>
+                  {leftArray.map((item, i) => {
+                    return (
+                      <div
+                        className='form-check form-check-inline d-flex justify-content-center aligin-item-start'
+                        key={i}
                       >
-                        {item.label}
-                      </label>
-                    </div>
-                  );
-                })}
+                        <span>
+                          <svg
+                            width='20'
+                            height='20'
+                            viewBox='0 0 20 20'
+                            fill='none'
+                            xmlns='http://www.w3.org/2000/svg'
+                          >
+                            <rect
+                              width='20'
+                              height='20'
+                              rx='10'
+                              fill='#0D57C6'
+                            />
+                            <path
+                              d='M14 7L8.5 12.5L6 10'
+                              stroke='white'
+                              strokeWidth='2.2'
+                              strokeLinecap='round'
+                              strokeLinejoin='round'
+                            />
+                          </svg>
+                        </span>
+                        <label
+                          className='form-check-label'
+                          htmlFor='inlineCheckbox1'
+                        >
+                          {item.label}
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
                 <div
                   style={{
+                    justifySelf: 'baseline',
                     display: 'flex',
                     justifyContent: 'center',
                     width: '100%'
@@ -94,7 +109,7 @@ const VvsLikesPricing = () => {
                       borderRadius: '50px',
                       width: '135px',
                       height: ' 50px',
-                      marginTop: '34px'
+                      // marginTop: '34px'
                     }}
                     type='button'
                   >

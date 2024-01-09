@@ -8,7 +8,9 @@ import WomanTestimonial2 from '@/assets/images/testimonial_woman_2.png';
 import ManTestimonial1 from '@/assets/images/testimonial_man_1.png';
 import ManTestimonial4 from '@/assets/images/testimonial_man_4.jpg';
 import ManTestimonial5 from '@/assets/images/testimonial_man_5.jpg';
+import americanFlagLogo from '@/assets/images/american-flag-icon.webp'
 import useIsClient from '@/lib/hooks/useIsClient';
+import { MdVerified } from 'react-icons/md';
 import { usePathname } from 'next/navigation';
 
 const TrustedByPeople = () => {
@@ -106,15 +108,15 @@ const TrustedByPeople = () => {
                         }}
                       >
                         <Image
-                          src={detail.img}
-                          alt='user'
+                          src={americanFlagLogo}
+                          alt='American Flag Icon'
                           style={{
                             borderRadius: '50px',
-                            height: '60px',
-                            width: '60px'
+                            height: '24px',
+                            width: '24px'
                           }}
-                          height={60}
-                          width={60}
+                          height={24}
+                          width={24}
                         />
                         <div>
                           <p
@@ -132,6 +134,7 @@ const TrustedByPeople = () => {
 
                       <Card.Body
                         style={{
+                          height: '264px',
                           padding: '16px 0 0'
                         }}
                       >
@@ -147,6 +150,28 @@ const TrustedByPeople = () => {
                           {detail.time}
                         </p> */}
                       </Card.Body>
+                      <Card.Footer
+                        style={{
+                          border: 'none',
+                          backgroundColor: 'transparent',
+                          display: 'flex',
+                          width: '100%',
+                          justifyContent: 'flex-end',
+                          alignItems: 'center',
+                          gap: 6
+                        }}
+                      >
+                        <p
+                          style={{
+                            fontWeight: 600,
+                            color: '#AEAEBE',
+                            marginBottom: 0
+                          }}
+                        >
+                          Verified Purchase
+                        </p>
+                        <MdVerified style={{ fontSize: '20px', color: '#70D2E8' }} />
+                      </Card.Footer>
                     </Card>
                   </div>
                 );

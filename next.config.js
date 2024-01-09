@@ -5,16 +5,10 @@ const nextConfig = {
   images: {
     remotePatterns: [toRemotePattern(process.env.IG_CMS_IMAGE_PATTERN)]
   },
-  domains: [
-    {
-      domain: 'vvslikes.com',
-      defaultLocale: 'en-US'
-    },
-    {
-      domain: 'vvs-staging.cjfritz.dev',
-      defaultLocale: 'en-US'
-    }
-  ],
+  i18n: {
+    locales: ['en-US'],
+    defaultLocale: 'en-US'
+  },
   redirects: async () => [
     {
       source: '/',

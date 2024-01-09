@@ -23,7 +23,7 @@ const Services = () => {
           }}
         >
           <a
-            href="/about_us"
+            href="/en/buy-instagram-likes-free-trial"
             className="text-white"
             style={{ textDecoration: "none" }}
           >
@@ -39,11 +39,11 @@ const Services = () => {
           }}
         >
           <a
-            href="/about_us"
+            href="/en/buy-instagram-likes-free-trial"
             className="text-white"
             style={{ textDecoration: "none" }}
           >
-            Buy Real Instagram Likess
+            Buy Real Instagram Likes
           </a>
         </li>
 

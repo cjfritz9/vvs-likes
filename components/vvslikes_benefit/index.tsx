@@ -28,7 +28,7 @@ const details = [
 const VvsLikesBenefit = () => {
   return (
     <>
-      <div style={{ margin: "0px 0px", background: "#F6F9FB" }}>
+      <div id='features-container' style={{ margin: "0px 0px", background: "#F6F9FB" }}>
         <div className="container w-100 vvsbenefit">
           <div className="row" style={{ padding: "80px 0px" }}>
             <div

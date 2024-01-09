@@ -33,7 +33,9 @@ const HeaderBar = () => {
   //   return null;
   // }
 
-  console.log(location)
+  const handleScrollIntoView = (componentId: string) => {
+    document.getElementById(componentId)!.scrollIntoView();
+  };
 
   return (
     <>
@@ -55,7 +57,8 @@ const HeaderBar = () => {
           </div>
         )}
       <div className='container'>
-        {location === '/' || location === '/en/buy-instagram-likes-free-trial' ? (
+        {location === '/' ||
+        location === '/en/buy-instagram-likes-free-trial' ? (
           <>
             {' '}
             <nav className='navbar navbar-expand-lg'>
@@ -106,6 +109,45 @@ const HeaderBar = () => {
                   >
                     Automatic Likes
                   </a> */}
+                  <a
+                    className={state.homeLinkClass}
+                    href='#'
+                    onClick={
+                      () => handleScrollIntoView('how-vvs-works-container')
+                      // () =>
+                      // state.homeLinkClass === 'nav-item nav-link'
+                      //   ? 'nav-item nav-link active'
+                      //   : 'nav-item nav-link'
+                    }
+                  >
+                    How It Works
+                    </a>
+                    <a
+                    className={state.homeLinkClass}
+                    href='#'
+                    onClick={
+                      () => handleScrollIntoView('pricing-container')
+                      // () =>
+                      // state.homeLinkClass === 'nav-item nav-link'
+                      //   ? 'nav-item nav-link active'
+                      //   : 'nav-item nav-link'
+                    }
+                  >
+                    Pricing
+                    </a>
+                    <a
+                    className={state.homeLinkClass}
+                    href='#'
+                    onClick={
+                      () => handleScrollIntoView('features-container')
+                      // () =>
+                      // state.homeLinkClass === 'nav-item nav-link'
+                      //   ? 'nav-item nav-link active'
+                      //   : 'nav-item nav-link'
+                    }
+                  >
+                    Features
+                  </a>
                   <a
                     className={state.aboutLinkClass}
                     href='/faq'

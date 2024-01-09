@@ -164,6 +164,7 @@ p.card-text {
   border-radius: 15px;
   padding: 68px;
   transition: 0.1s;
+  height: 100%;
 }
 
 .box_pricing p {

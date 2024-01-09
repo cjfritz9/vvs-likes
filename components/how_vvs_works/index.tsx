@@ -3,11 +3,13 @@ import frame1Img from '../../assets/images/frame-1.png';
 import frame2Img from '../../assets/images/frame-2.png';
 import frame3Img from '../../assets/images/frame-3.png';
 import Image from 'next/image';
+import { useRef } from 'react';
 
 const HowVvsWorks = () => {
   return (
     <>
       <div
+        id='how-vvs-works-container'
         style={{ margin: '80px 0px', background: '#F6F9FB' }}
         className='have_likes'
       >

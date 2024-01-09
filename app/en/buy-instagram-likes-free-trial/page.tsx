@@ -18,6 +18,7 @@ import '@/styles/blog_details.css';
 import '@/styles/blogcards.css';
 import InstaPostModal from '@/components/modal/insta_posts_modal';
 import { usePathname } from 'next/navigation';
+import Head from 'next/head';
 // import useIsClient from '@/lib/hooks/useIsClient';
 
 // import blog_img1 from "../../assets/images/blog_img1.png";
@@ -43,6 +44,13 @@ export default function BuyAutomaticInstagramLikesPage() {
 
   return (
     <>
+      <Head>
+        <link
+          rel='alternate'
+          hrefLang='en-US'
+          href='https://vvslikes.com/en/buy-instagram-likes-free-trial'
+        />
+      </Head>
       <>
         <DetailsAboutInstagramLikes
           setIsSelectPostModal={setIsSelectPostModal}
