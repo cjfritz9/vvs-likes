@@ -7,11 +7,15 @@ import Footer from '@/components/layout/footer/Footer';
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import Head from 'next/head';
 
 const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Buy Instagram Likes: Get 10-50 Real IG Likes FREE⋆Instant',
+  title: {
+    default: 'Buy Instagram Likes: Get 10-50 Real IG Likes FREE⋆Instant',
+    template: '%s - VVSLikes'
+  },
   description:
     'Buy Instagram likes from VVSLikes. Skeptical? Get a 10-50 trial of free REAL Instagram likes & experience engagement instantly. No surveys/verification or CC.'
 };
@@ -20,11 +24,16 @@ export default function RootLayout({
   children
 }: {
   children: React.ReactNode;
-  }) {
-
+}) {
   return (
     <html lang='en'>
-      
+      <Head>
+      <link rel="canonical" href="https://vvslikes.com/" />
+        <meta
+          name='google-site-verification'
+          content='RFzamY1Nid1K0GTAltCTFDsiNE-NNNAvY0SPfDmus9M'
+        />
+      </Head>
       <body className={outfit.className}>
         <Providers>
           <div className='App'>

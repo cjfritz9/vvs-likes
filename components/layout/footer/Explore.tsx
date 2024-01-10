@@ -57,7 +57,7 @@ const Explore = () => {
             <a
               className="text-white"
               style={{ textDecoration: "none" }}
-              href="/sitemap"
+              href="/sitemap.xml"
             >
               Sitemap
             </a>

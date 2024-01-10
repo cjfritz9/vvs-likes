@@ -395,12 +395,12 @@ const RealInstagramLikes = (props: IProps) => {
                     btnText={'Buy Now'}
                   />
                 </div>
-                <Image
+                {/* <Image
                   src={packagesHero}
                   height={460}
                   width={476}
                   alt='Instagram likes in real time'
-                />
+                /> */}
               </div>
             </div>
           </div>

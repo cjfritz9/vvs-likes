@@ -166,7 +166,7 @@ const Footer = () => {
               Policies
             </a>
             .{' '}
-            <a style={{ color: '#DCDCDC' }} href='/sitemap'>
+            <a style={{ color: '#DCDCDC' }} href='/sitemap.xml'>
               Sitemap
             </a>
           </p>

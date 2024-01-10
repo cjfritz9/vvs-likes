@@ -1,6 +1,6 @@
 import '@/styles/terms.css';
 
-const TermsAndConditionsPage = () => {
+const TermsOfServicePage = () => {
   return (
     <div>
       <div className='container'>
@@ -505,4 +505,4 @@ const TermsAndConditionsPage = () => {
     </div>
   );
 };
-export default TermsAndConditionsPage;
+export default TermsOfServicePage;

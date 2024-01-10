@@ -70,7 +70,7 @@ const TrustedByPeople = () => {
   ];
 
   const detailArray =
-    location === '/automatic-likes' ? userDetails.slice(0, 3) : userDetails;
+    location === '/en/buy-automatic-instagram-likes-monthly' ? userDetails.slice(0, 3) : userDetails;
 
   return (
     <>

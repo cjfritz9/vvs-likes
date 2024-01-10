@@ -17,6 +17,7 @@ import mastercard from '@/assets/images/mastercard.png';
 import visa from '@/assets/images/visa.png';
 import '@/styles/Billing.css';
 
+
 const BillingPage: React.FC = () => {
   return (
     <section className='billing'>

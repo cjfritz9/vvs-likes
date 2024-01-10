@@ -39,7 +39,7 @@ const HeaderBar = () => {
 
   return (
     <>
-      {location !== '/' &&
+      {/* {location !== '/' &&
         location !== '/en/buy-instagram-likes-free-trial' && (
           <div
             className='header-top'
@@ -55,7 +55,7 @@ const HeaderBar = () => {
               Save on Real Automatic Instagram Likes 🗓️
             </a>
           </div>
-        )}
+        )} */}
       <div className='container'>
         {location === '/' ||
         location === '/en/buy-instagram-likes-free-trial' ? (
@@ -217,7 +217,7 @@ const HeaderBar = () => {
                   </p>
                   <div className='d-flex justify-content-start gap-3 header-buttons-wrapper'>
                     <a
-                      href='/automatic-likes'
+                      href='/en/buy-automatic-instagram-likes-monthly'
                       className='btn text-white'
                       style={{
                         position: 'relative',
@@ -247,7 +247,7 @@ const HeaderBar = () => {
                       </span>
                     </a>
                     <a
-                      href='/buy-automatic-instagram-likes'
+                      href='/en/buy-automatic-instagram-likes-monthly'
                       className='btn text-white '
                       style={{
                         background: '#FF3E6C',

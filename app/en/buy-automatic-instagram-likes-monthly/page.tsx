@@ -10,7 +10,7 @@ import giftBox from '@/assets/images/gift-box.png';
 import bell from '@/assets/images/bell.png';
 import '@/styles/automatic-likes.css';
 
-const AutomaticLikesPage: React.FC = () => {
+const AutomaticLikesMonthlyPage: React.FC = () => {
   return (
     <div style={{ textAlign: 'center' }}>
       <div
@@ -137,4 +137,4 @@ const AutomaticLikesPage: React.FC = () => {
   );
 };
 
-export default AutomaticLikesPage;
+export default AutomaticLikesMonthlyPage;

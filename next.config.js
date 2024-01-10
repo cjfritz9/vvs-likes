@@ -17,6 +17,18 @@ const nextConfig = {
       permanent: true
     },
     {
+      source: '/en/buy-automatic-instagram-likes-monthly',
+      has: [{ type: 'host', value: 'www.vvslikes.com' }],
+      destination: 'https://vvslikes.com/en/buy-automatic-instagram-likes-monthly',
+      permanent: true
+    },
+    {
+      source: '/en/buy-instagram-likes-free-trial',
+      has: [{ type: 'host', value: 'www.vvslikes.com' }],
+      destination: 'https://vvslikes.com/en/buy-instagram-likes-free-trial',
+      permanent: true
+    },
+    {
       source: '/',
       has: [{ type: 'host', value: 'vvslikes.com' }],
       destination: 'https://vvslikes.com/en/buy-instagram-likes-free-trial',
