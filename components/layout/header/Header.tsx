@@ -37,6 +37,7 @@ const HeaderBar = () => {
 
   const handleScrollIntoView = useCallback(
     (componentId: string) => {
+      console.log(location)
       if (location === '/en/buy-instagram-likes-free-trial') {
         document.getElementById(componentId)!.scrollIntoView();
       } else {
@@ -297,7 +298,7 @@ const HeaderBar = () => {
                         Buy Real Instagram Likes
                       </a>
                       <a
-                        href='/automatic-likes'
+                        href='#'
                         className='btn text-white '
                         style={{
                           position: 'relative',
@@ -306,6 +307,9 @@ const HeaderBar = () => {
                           borderRadius: '25px'
                         }}
                         type='button'
+                        onClick={() =>
+                          handleScrollIntoView('free-likes-container')
+                        }
                       >
                         Free Likes
                         <span
