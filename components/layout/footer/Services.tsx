@@ -23,7 +23,7 @@ const Services = () => {
           }}
         >
           <a
-            href="/en/buy-instagram-likes-free-trial"
+            href="/en/buy-automatic-instagram-likes-monthly"
             className="text-white"
             style={{ textDecoration: "none" }}
           >

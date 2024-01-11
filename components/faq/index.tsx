@@ -11,7 +11,7 @@ const Faq = () => {
   // if (!isClient) return null;
 
   return (
-    <div className='faq-main'>
+    <div id='faq-container' className='faq-main'>
       <div
         className='container'
         style={{ marginTop: location === '/faq' ? '80px' : 'auto' }}

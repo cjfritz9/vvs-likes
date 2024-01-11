@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import AutomaticLikesPackage from '@/components/automatic_likes_package';
 import HowVvsWorks from '@/components/how_vvs_works';
@@ -11,6 +11,7 @@ import bell from '@/assets/images/bell.png';
 import '@/styles/automatic-likes.css';
 
 const AutomaticLikesMonthlyPage: React.FC = () => {
+
   return (
     <div style={{ textAlign: 'center' }}>
       <div

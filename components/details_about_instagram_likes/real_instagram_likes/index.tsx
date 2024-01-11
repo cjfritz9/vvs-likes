@@ -177,7 +177,7 @@ const RealInstagramLikes = (props: IProps) => {
     <>
       <div className='container'>
         <div className='row'>
-          <div className='bg-white get-started_block mobile_padding'>
+          <div id='free-likes-container' className='bg-white get-started_block mobile_padding'>
             <div className='text-center'>
               <h3
                 style={{
@@ -346,7 +346,7 @@ const RealInstagramLikes = (props: IProps) => {
               </div>
             </form>
           </div>
-          <div className='bg-white get-started_block mobile_padding'>
+          <div id='buy-likes-container' className='bg-white get-started_block mobile_padding'>
             <div style={{ marginTop: '50px' }}>
               <h3
                 className='text-center'
