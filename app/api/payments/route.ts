@@ -50,7 +50,13 @@ export async function POST(req: NextRequest) {
     paymentData.paymentAmount,
     paymentData.ccNum,
     paymentData.ccExp,
-    paymentData.cvv
+    paymentData.cvv,
+    transactionData,
+    {
+      riskScore: fraudResponse.data.riskScore,
+      insights: fraudResponse.data.insights,
+      factors: fraudResponse.data.factors
+    }
   );
 
   const smmRajaResponse = await ValidationService.createSMMRajaOrder({

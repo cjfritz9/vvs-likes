@@ -236,25 +236,45 @@ const validateTransactionFraud = async (transactionData: TransactionProps) => {
           transactionData.billing!.address2
         }`,
         phone_number: transactionData.billing!.phoneNumber,
-        createdAt: new Date(),
-        updatedAt: new Date(),
+        createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
         browserip: transactionData.device!.ipAddress,
         minfraud_risk_score: minFraudScore.riskScore,
         minfraud_risk_insights:
-          minFraudInsights.warnings?.map((warningObj) =>
-            warningObj.warning
-          ).join(', ') ?? null,
+          minFraudInsights.warnings
+            ?.map((warningObj) => warningObj.warning)
+            .join(', ') ?? null,
         minfraud_risk_factors: minFraudFactors.disposition?.reason ?? null,
         purchase_amount: `$${transactionData.order?.amount}`
       });
       return {
         success: false,
-        message: `Fraud Risk. Score: ${minFraudScore.riskScore}.`
+        message: `Fraud Risk. Score: ${minFraudScore.riskScore}.`,
+        data: {
+          riskScore: minFraudScore.riskScore,
+          insights:
+            minFraudInsights.warnings
+              ?.map((warningObj) => warningObj.warning)
+              .join(', ') ?? 'Insight generation error',
+          factors:
+            minFraudFactors.disposition?.reason ??
+            'Factor disposition generation error'
+        }
       };
     } else {
       return {
         success: true,
-        message: `No fraud risk detected. Score: ${minFraudScore.riskScore}.`
+        message: `No fraud risk detected. Score: ${minFraudScore.riskScore}.`,
+        data: {
+          riskScore: minFraudScore.riskScore,
+          insights:
+            minFraudInsights.warnings
+              ?.map((warningObj) => warningObj.warning)
+              .join(', ') ?? 'Insight generation error',
+          factors:
+            minFraudFactors.disposition?.reason ??
+            'Factor disposition generation error'
+        }
       };
     }
   } catch (error) {

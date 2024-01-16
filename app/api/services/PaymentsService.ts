@@ -4,6 +4,8 @@ import { NextResponse } from 'next/server';
 import * as https from 'node:https';
 // const querystring = require('querystring');
 import * as querystring from 'node:querystring';
+import { PaymentsDeclinedModel } from '../models/PaymentsDeclinedModel';
+import { TransactionProps } from '@maxmind/minfraud-api-node/dist/src/request/transaction';
 
 export class DirectPost {
   private security_key: string;
@@ -61,7 +63,18 @@ export class DirectPost {
   //   this.shipping = shippingInformation;
   // }
 
-  doSale(amount: string, ccNum: string, ccExp: string, cvv: string) {
+  doSale(
+    amount: string,
+    ccNum: string,
+    ccExp: string,
+    cvv: string,
+    transactionData: TransactionProps,
+    minFraudData: {
+      riskScore: number;
+      insights: string;
+      factors: string;
+    }
+  ) {
     let requestOptions = {
       type: 'sale',
       amount: amount,
@@ -78,10 +91,18 @@ export class DirectPost {
     );
 
     // Make request
-    this._doRequest(requestOptions);
+    this._doRequest(requestOptions, transactionData, minFraudData);
   }
 
-  private _doRequest(postData: any) {
+  private _doRequest(
+    postData: any,
+    transactionData: TransactionProps,
+    minFraudData: {
+      riskScore: number;
+      insights: string;
+      factors: string;
+    }
+  ) {
     const baseUrl = 'https://secure.nmi.com/api/transact.php';
     // const hostName = 'secure.nmi.com';
     // const path = '/api/transact.php';
@@ -109,7 +130,10 @@ export class DirectPost {
     axios
       .post(baseUrl, options)
       .then((res) => {
-        if (res.status.toString().startsWith('2')) {
+        if (
+          res.status.toString().startsWith('2') ||
+          res.data.response?.toString() !== '1'
+        ) {
           return NextResponse.json({
             success: true,
             message: 'Success, data attached',
@@ -117,6 +141,28 @@ export class DirectPost {
           });
         } else {
           console.info(res);
+          PaymentsDeclinedModel.create({
+            first_name: transactionData.billing!.firstName,
+            last_name: transactionData.billing!.lastName,
+            email: transactionData.email!,
+            country: transactionData.billing!.country,
+            postal_code: transactionData.billing!.postal,
+            street_address: `${transactionData.billing!.address} ${
+              transactionData.billing!.address2
+            }`,
+            phone_number: transactionData.billing!.phoneNumber,
+            createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+            updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+            browserip: transactionData.device!.ipAddress,
+            minfraud_risk_score: minFraudData.riskScore,
+            minfraud_risk_insights: minFraudData.insights,
+            minfraud_risk_factors: minFraudData.factors,
+            nmi_response_code: res.data.response,
+            nmi_avs_response: res.data.responsetext,
+            nmi_cvv_response: res.data.cvvresponse,
+            nmi_result_code: res.data.response_code,
+            purchase_amount: `$${transactionData.order?.amount}`
+          });
           return NextResponse.json({
             success: false,
             message: 'Unhandled response, logged to console',
@@ -126,6 +172,29 @@ export class DirectPost {
       })
       .catch((error) => {
         console.error(error);
+
+        PaymentsDeclinedModel.create({
+          first_name: transactionData.billing!.firstName,
+          last_name: transactionData.billing!.lastName,
+          email: transactionData.email!,
+          country: transactionData.billing!.country,
+          postal_code: transactionData.billing!.postal,
+          street_address: `${transactionData.billing!.address} ${
+            transactionData.billing!.address2
+          }`,
+          phone_number: transactionData.billing!.phoneNumber,
+          createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+          updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+          browserip: transactionData.device!.ipAddress,
+          minfraud_risk_score: minFraudData.riskScore,
+          minfraud_risk_insights: minFraudData.insights,
+          minfraud_risk_factors: minFraudData.factors,
+          nmi_response_code: 'NMI Error, logged to console',
+          nmi_avs_response: 'NMI Error, logged to console',
+          nmi_cvv_response: 'NMI Error, logged to console',
+          nmi_result_code: 'NMI Error, logged to console',
+          purchase_amount: `$${transactionData.order?.amount}`
+        });
 
         return NextResponse.json({
           success: false,
@@ -178,6 +247,17 @@ export class DirectPost {
       zip: '12345'
     };
     this.setBilling(billingInfo);
-    this.doSale('100.00', '4111111111111111', '1221', '123');
+    this.doSale(
+      '100.00',
+      '4111111111111111',
+      '1221',
+      '123',
+      {},
+      {
+        riskScore: 100,
+        insights: 'Test Transaction',
+        factors: 'Test Transaction'
+      }
+    );
   };
 }

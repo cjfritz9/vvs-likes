@@ -72,6 +72,16 @@ class PaymentsDeclinedModel extends Model {
   @Column({
     type: DataType.STRING
   })
+  declare minfraud_risk_insights: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare minfraud_risk_factors: string;
+
+  @Column({
+    type: DataType.STRING
+  })
   declare nmi_response_code: string;
 
   @Column({
@@ -93,11 +103,6 @@ class PaymentsDeclinedModel extends Model {
     type: DataType.STRING
   })
   declare nmi_result_code: string;
-
-  @Column({
-    type: DataType.STRING
-  })
-  declare package_name: string;
 
   @Column({
     type: DataType.STRING
