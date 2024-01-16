@@ -1,11 +1,12 @@
-import { DataType, Table, Model, Column } from 'sequelize-typescript';
+import { DataType, Table, Model, Column } from "sequelize-typescript";
 
 @Table({
   timestamps: true,
-  tableName: 'purchases',
-  modelName: 'PurchasesModel'
+  tableName: "fraud_rejection",
+  modelName: "FraudRejectionModel",
 })
-class PurchaseModel extends Model {
+
+class FraudRejectionModel extends Model {
   @Column({
     primaryKey: true,
     autoIncrement: true,
@@ -71,7 +72,12 @@ class PurchaseModel extends Model {
   @Column({
     type: DataType.STRING
   })
-  declare package_name: string;
+  declare minfraud_risk_insights: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare minfraud_risk_factors: string;
 
   @Column({
     type: DataType.STRING
@@ -79,4 +85,4 @@ class PurchaseModel extends Model {
   declare purchase_amount: string;
 }
 
-export { PurchaseModel };
+export { FraudRejectionModel };

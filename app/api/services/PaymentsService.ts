@@ -104,13 +104,8 @@ export class DirectPost {
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': Buffer.byteLength(postData)
       },
-      body: {
-        postData
-      }
+      body: postData
     };
-
-    // TODO - look into axios conversion
-
     axios
       .post(baseUrl, options)
       .then((res) => {
@@ -131,6 +126,7 @@ export class DirectPost {
       })
       .catch((error) => {
         console.error(error);
+
         return NextResponse.json({
           success: false,
           message: 'Transaction post error, logged to console',

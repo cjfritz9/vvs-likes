@@ -77,12 +77,12 @@ const TrustedByPeople = () => {
       <div className='container' style={{ paddingBottom: '80px' }}>
         <div className='row'>
           <div>
-            <h3
+            <h4
               className='text-center'
               style={{ fontSize: '36px', fontWeight: '600', color: '#02111B' }}
             >
               Trusted by 15,000+ people
-            </h3>
+            </h4>
             <div className='row' style={{ marginTop: '64px' }}>
               {detailArray.map((detail, i) => {
                 return (

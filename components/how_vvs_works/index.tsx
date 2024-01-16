@@ -47,7 +47,12 @@ const HowVvsWorks = () => {
                         src={frame1Img}
                       />
                       <Card.Body>
-                        <Card.Title>Enter Details</Card.Title>
+                        <Card.Title
+                          as='p'
+                          style={{ fontSize: '20px', fontWeight: 600 }}
+                        >
+                          Enter Details
+                        </Card.Title>
                         <Card.Text>
                           It can be as easy as filling your Email and Instagram
                           Username and selecting the service that best fits your
@@ -64,7 +69,12 @@ const HowVvsWorks = () => {
                         src={frame2Img}
                       />
                       <Card.Body>
-                        <Card.Title>Get Likes</Card.Title>
+                        <Card.Title
+                          as='p'
+                          style={{ fontSize: '20px', fontWeight: 600 }}
+                        >
+                          Get Likes
+                        </Card.Title>
                         <Card.Text>
                           Now you can relax and watch as real VVSlikes pour in
                           within minutes by real pages with stories and all.
@@ -80,7 +90,12 @@ const HowVvsWorks = () => {
                         src={frame3Img}
                       />
                       <Card.Body>
-                        <Card.Title>24/7 Support</Card.Title>
+                        <Card.Title
+                          as='p'
+                          style={{ fontSize: '20px', fontWeight: 600 }}
+                        >
+                          24/7 Support
+                        </Card.Title>
                         <Card.Text>
                           You should be happy now, but if anything ever looks
                           fishy, we need to know and we are here to listen 24/7.

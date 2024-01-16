@@ -356,7 +356,7 @@ const RealInstagramLikes = (props: IProps) => {
               </h3>
               <p className='text-center'>
                 At VVSLikes, you can buy Instagram likes that deliver within
-                minutes or subscribe to our <a href='/buy-automatic-instagram-likes'>automatic likes service</a> which sends
+                minutes or subscribe to our <a href='/en/buy-automatic-instagram-likes-monthly'>automatic likes service</a> which sends
                 likes to every new post.
               </p>
               <p

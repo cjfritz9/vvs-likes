@@ -1,11 +1,12 @@
-import { DataType, Table, Model, Column } from 'sequelize-typescript';
+import { DataType, Table, Model, Column } from "sequelize-typescript";
 
 @Table({
   timestamps: true,
-  tableName: 'purchases',
-  modelName: 'PurchasesModel'
+  tableName: "payments_declined",
+  modelName: "PaymentsDeclinedModel",
 })
-class PurchaseModel extends Model {
+
+class PaymentsDeclinedModel extends Model {
   @Column({
     primaryKey: true,
     autoIncrement: true,
@@ -71,12 +72,38 @@ class PurchaseModel extends Model {
   @Column({
     type: DataType.STRING
   })
+  declare nmi_response_code: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare nmi_response_text: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare nmi_avs_response: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare nmi_cvv_response: string;
+
+  @Column({
+    type: DataType.STRING
+  })
+  declare nmi_result_code: string;
+
+  @Column({
+    type: DataType.STRING
+  })
   declare package_name: string;
 
   @Column({
     type: DataType.STRING
   })
   declare purchase_amount: string;
+
 }
 
-export { PurchaseModel };
+export { PaymentsDeclinedModel };

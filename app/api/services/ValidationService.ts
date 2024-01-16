@@ -6,6 +6,7 @@ import { Logger } from '.';
 import { FreeTrialModel } from '../models/FreeTrialModel';
 import { AxiosResponse } from 'axios';
 import { TransactionProps } from '@maxmind/minfraud-api-node/dist/src/request/transaction';
+import { FraudRejectionModel } from '../models/FraudRejectionModel';
 
 const logger = Logger.getLogger();
 const axios = axiosModule.default;
@@ -225,6 +226,27 @@ const validateTransactionFraud = async (transactionData: TransactionProps) => {
     console.log({ minFraudFactors });
 
     if (minFraudScore.riskScore < 0.9) {
+      FraudRejectionModel.create({
+        first_name: transactionData.billing!.firstName,
+        last_name: transactionData.billing!.lastName,
+        email: transactionData.email!,
+        country: transactionData.billing!.country,
+        postal_code: transactionData.billing!.postal,
+        street_address: `${transactionData.billing!.address} ${
+          transactionData.billing!.address2
+        }`,
+        phone_number: transactionData.billing!.phoneNumber,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        browserip: transactionData.device!.ipAddress,
+        minfraud_risk_score: minFraudScore.riskScore,
+        minfraud_risk_insights:
+          minFraudInsights.warnings?.map((warningObj) =>
+            warningObj.warning
+          ).join(', ') ?? null,
+        minfraud_risk_factors: minFraudFactors.disposition?.reason ?? null,
+        purchase_amount: `$${transactionData.order?.amount}`
+      });
       return {
         success: false,
         message: `Fraud Risk. Score: ${minFraudScore.riskScore}.`

@@ -37,14 +37,15 @@ const OurMethod = () => {
             <div style={{ marginTop: '64px' }}>
               <div className='row align-items-center mb-5 column-reverse-method'>
                 <div className='col-md-6 text-start'>
-                  <h4
+                  <p
                     style={{
                       fontSize: '36px',
-                      fontWeight: '600'
+                      fontWeight: '600',
+                      marginBottom: '0px'
                     }}
                   >
                     Select VVSLikes Package
-                  </h4>
+                  </p>
                   <p
                     style={{
                       fontSize: '16px',
@@ -58,6 +59,8 @@ const OurMethod = () => {
                 </div>
                 <div className='col-md-6'>
                   <Image
+                    height={360}
+                    width={360}
                     style={{ maxWidth: '360px', height: 'auto', width: '100%' }}
                     alt={'package-img'}
                     src={packageImg}
@@ -70,20 +73,23 @@ const OurMethod = () => {
               >
                 <div className='col-md-6'>
                   <Image
+                    height={360}
+                    width={360}
                     style={{ maxWidth: '360px', height: 'auto', width: '100%' }}
                     alt={'package-img'}
                     src={enterDetailImg}
                   />
                 </div>
                 <div className='col-md-6 text-start'>
-                  <h4
+                  <p
                     style={{
                       fontSize: '36px',
-                      fontWeight: '600'
+                      fontWeight: '600',
+                      marginBottom: '0px'
                     }}
                   >
                     Enter Your Details
-                  </h4>
+                  </p>
                   <p
                     style={{
                       fontSize: '16px',
@@ -99,14 +105,15 @@ const OurMethod = () => {
               </div>
               <div className='row align-items-center mb-5 column-reverse-method'>
                 <div className='col-md-6 text-start'>
-                  <h4
+                  <p
                     style={{
                       fontSize: '36px',
-                      fontWeight: '600'
+                      fontWeight: '600',
+                      marginBottom: '0px'
                     }}
                   >
                     Reach New Highs
-                  </h4>
+                  </p>
                   <p
                     style={{
                       fontSize: '16px',
@@ -121,8 +128,10 @@ const OurMethod = () => {
                 </div>
                 <div className='col-md-6'>
                   <Image
+                    height={360}
+                    width={360}
                     alt={'new-highs'}
-                    style={{ maxWidth: '335px', height: 'auto', width: '100%' }}
+                    style={{ maxWidth: '360px', height: 'auto', width: '100%' }}
                     src={reactNewHighs}
                   />
                 </div>

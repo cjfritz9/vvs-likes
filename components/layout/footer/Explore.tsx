@@ -19,9 +19,10 @@ const Explore = () => {
 
           <li className="list-group-item">
             <a
+              rel='nofollow'
               className="text-white"
               style={{ textDecoration: "none" }}
-              href="/faq"
+              href="/?scrollTo=faq-container"
             >
               FAQ
             </a>

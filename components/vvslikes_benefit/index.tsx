@@ -89,8 +89,8 @@ const VvsLikesBenefit = () => {
                             }}
                           >
                             <Image src={item.icon} alt="likes-img" />
-                            <Card.Title
-                              style={{ fontWeight: "600", fontSize: "18px" }}
+                            <Card.Title as='p'
+                              style={{ color: '#02111B', fontWeight: "600", fontSize: "18px" }}
                             >
                               {item.title}
                             </Card.Title>

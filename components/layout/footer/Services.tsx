@@ -39,7 +39,8 @@ const Services = () => {
           }}
         >
           <a
-            href="/en/buy-instagram-likes-free-trial"
+            href="/?scrollTo=free-likes-container"
+            rel='nofollow'
             className="text-white"
             style={{ textDecoration: "none" }}
           >

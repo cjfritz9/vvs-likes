@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { DataType, Table, Model, Column } from "sequelize-typescript";
 
 @Table({
@@ -6,14 +5,13 @@ import { DataType, Table, Model, Column } from "sequelize-typescript";
   tableName: "free_trials",
   modelName: "TrialModel",
 })
-
 class FreeTrialModel extends Model {
   @Column({
     primaryKey: true,
     autoIncrement: true,
     type: DataType.INTEGER
   })
-  declare id: string;
+  declare id: number;
 
   @Column({
     type: DataType.STRING,
@@ -61,7 +59,7 @@ class FreeTrialModel extends Model {
   declare verification_code: string;
 
   @Column({
-    type: DataType.DATE,
+    type: DataType.DATE
   })
   declare createdAt: Date;
 

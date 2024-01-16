@@ -9,12 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1
     },
     {
-      url: 'https://vvslikes.com/en/buy-instagram-likes-free-trial',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1
-    },
-    {
       url: 'https://vvslikes.com/en/buy-automatic-instagram-likes-monthly',
       lastModified: new Date(),
       changeFrequency: 'monthly',

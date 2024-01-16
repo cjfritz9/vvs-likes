@@ -2,12 +2,15 @@ import type { Metadata } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import backgroundImg from '@/assets/images/mask-group.png';
 import Providers from './providers';
-import HeaderBar from '@/components/layout/header/Header';
+import HeaderBar, {
+  HeaderBarFallback
+} from '@/components/layout/header/Header';
 import Footer from '@/components/layout/footer/Footer';
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import Head from 'next/head';
+import { Suspense } from 'react';
 
 const outfit = Outfit({ subsets: ['latin'] });
 
@@ -17,7 +20,10 @@ export const metadata: Metadata = {
     template: '%s - VVSLikes'
   },
   description:
-    'Buy Instagram likes from VVSLikes. Skeptical? Get a 10-50 trial of free REAL Instagram likes & experience engagement instantly. No surveys/verification or CC.'
+    'Buy Instagram likes from VVSLikes. Skeptical? Get a 10-50 trial of free REAL Instagram likes & experience engagement instantly. No surveys/verification or CC.',
+  alternates: {
+    canonical: 'https://vvslikes.com/'
+  }
 };
 
 export default function RootLayout({
@@ -28,11 +34,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <Head>
-      <link rel="canonical" href="https://vvslikes.com/" />
-        <meta
-          name='google-site-verification'
-          content='RFzamY1Nid1K0GTAltCTFDsiNE-NNNAvY0SPfDmus9M'
-        />
+        <link rel='canonical' href='https://vvslikes.com/' />
       </Head>
       <body className={outfit.className}>
         <Providers>
@@ -44,7 +46,9 @@ export default function RootLayout({
                 backgroundSize: 'cover'
               }}
             >
-              <HeaderBar />
+              <Suspense fallback={<HeaderBarFallback />}>
+                <HeaderBar />
+              </Suspense>
             </div>
             {children}
             <Footer />

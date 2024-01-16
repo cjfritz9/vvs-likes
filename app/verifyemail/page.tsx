@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -38,19 +38,21 @@ const VerifyEmailPage: React.FC = () => {
   }, []);
 
   return (
-    <div className='container'>
-      {status ? (
-        <div style={{ padding: 25, textAlign: 'center' }}>
-          <h1>Email Confirmed</h1>
-          <p style={{ paddingTop: 10 }}>
-            Thanks for confirming your email. Your free likes will be delivered
-            within the next 15 minutes.
-          </p>
-        </div>
-      ) : (
-        <h1>Loading...</h1>
-      )}
-    </div>
+    <Suspense>
+      <div className='container'>
+        {status ? (
+          <div style={{ padding: 25, textAlign: 'center' }}>
+            <h1>Email Confirmed</h1>
+            <p style={{ paddingTop: 10 }}>
+              Thanks for confirming your email. Your free likes will be
+              delivered within the next 15 minutes.
+            </p>
+          </div>
+        ) : (
+          <h1>Loading...</h1>
+        )}
+      </div>
+    </Suspense>
   );
 };
 

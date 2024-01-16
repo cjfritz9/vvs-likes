@@ -6,10 +6,6 @@ const FreeTrialLayout: React.FC<PropsWithChildren> = ({ children }) => {
     <div>
       <Head>
         <link rel='canonical' href='https://vvslikes.com/en/buy-instagram-likes-free-trial' />
-        <meta
-          name='google-site-verification'
-          content='RFzamY1Nid1K0GTAltCTFDsiNE-NNNAvY0SPfDmus9M'
-        />
       </Head>
       {children}
     </div>

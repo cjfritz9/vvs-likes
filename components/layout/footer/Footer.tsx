@@ -13,7 +13,6 @@ import { useEffect } from 'react';
 const Footer = () => {
   useEffect(() => {
     if (!window) return;
-    console.log('running');
     (() => {
       //@ts-ignore
       var mmapiws = (window.__mmapiws = window.__mmapiws || {});

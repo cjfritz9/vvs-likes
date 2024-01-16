@@ -29,7 +29,7 @@ const Faq = () => {
               <p className='fw-normal text-base text-center'>
                 Here you'll find frequently asked question about our services.
                 If you have any additional question, please <br />{' '}
-                <a className='fw-mormal text-base' href='contact-us'>
+                <a className='fw-mormal text-base' href='/support'>
                   contact us.
                 </a>
               </p>

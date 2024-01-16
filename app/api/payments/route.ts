@@ -3,7 +3,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ValidationService } from '../services';
 import { DirectPost } from '../services/PaymentsService';
 
-interface IPaymentData {
+interface IOrderData {
+  userData: {
+    postUrl: string;
+    packageName: string;
+    likesAmount: number;
+  };
   transactionData: TransactionProps;
   paymentData: {
     paymentAmount: string;
@@ -21,7 +26,7 @@ export async function POST(req: NextRequest) {
       message: 'Insufficient transactional data provided'
     });
   }
-  const { transactionData, paymentData } = orderData as IPaymentData;
+  const { transactionData, paymentData, userData } = orderData as IOrderData;
 
   const fraudResponse = await ValidationService.validateTransactionFraud(
     transactionData
@@ -47,4 +52,18 @@ export async function POST(req: NextRequest) {
     paymentData.ccExp,
     paymentData.cvv
   );
+
+  const smmRajaResponse = await ValidationService.createSMMRajaOrder({
+    action: 'add',
+    service: 2866,
+    link: userData.postUrl,
+    quantity: userData.likesAmount
+  });
+
+  if (!smmRajaResponse || !smmRajaResponse.status.toString().startsWith('2')) {
+    return NextResponse.json({
+      success: false,
+      message: 'SMM Raja error, logged to console.'
+    });
+  }
 }

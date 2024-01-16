@@ -312,11 +312,15 @@ export async function emailVerificaton(req: NextRequest) {
       return;
     }
 
-    const verificationCode = generateRandomVerificationCode(freeTrial.id);
+    const verificationCode = generateRandomVerificationCode(
+      freeTrial.id.toString()
+    );
     await FreeTrialModel.update(
       {
         post_id,
-        verification_code: verificationCode
+        verification_code: verificationCode,
+        createdAt: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        updatedAt: new Date().toISOString().slice(0, 19).replace('T', ' ')
       },
       {
         where: {

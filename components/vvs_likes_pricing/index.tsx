@@ -38,8 +38,8 @@ const VvsLikesPricing = () => {
           <div className='col-md-6'>
             <div className='box_pricing'>
               <div className='text-center'>
-                <h4 style={{ fontWeight: 'bold' }}>Why VVS Likes?</h4>
-                <h3>Real Likes</h3>
+                <p style={{ fontWeight: 'bold', color: '#02111B', fontSize: '24px', marginBottom: '0px' }}>Why VVS Likes?</p>
+                <p style={{ fontWeight: 500, color: '#212529', fontSize: '28px', marginBottom: '8px' }}>Real Likes</p>
                 <p>Come back every day for up to 50 free likes</p>
               </div>
               <div
@@ -122,8 +122,8 @@ const VvsLikesPricing = () => {
           <div className='col-md-6'>
             <div className='box_pricing'>
               <div className='text-center'>
-                <h4 style={{ fontWeight: 'bold' }}>Why VVS Likes Pro?</h4>
-                <h3>Automatic Real likes</h3>
+                <p style={{ fontWeight: 'bold', color: '#02111B', fontSize: '24px', marginBottom: '8px' }}>Why VVS Likes Pro?</p>
+                <p style={{ fontWeight: 500, color: '#212529', fontSize: '28px', marginBottom: '8px' }}>Automatic Real likes</p>
                 <p>Membership Packages Come with Gifts!</p>
               </div>
               <div>
