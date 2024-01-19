@@ -1,0 +1,24 @@
+.wp-blog {
+  display: flex;
+  flex-direction: column;
+}
+
+.wp-block-image {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  align-self: center;
+}
+
+.wp-block-heading {
+  margin: 1rem 0rem;
+}
+
+li {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ol {
+  padding-left: 16px !important;
+  list-style: decimal;
+}

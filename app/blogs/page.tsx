@@ -1,24 +1,24 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '@/styles/Blog.css';
 import Pagination from 'react-bootstrap/Pagination';
 import blogData, { IBlogMetadata } from '@/assets/data/blogData';
 import Blogcards from '@/components/blogCard/Blogcards';
+import { getBlogPosts } from '../api/requests';
 
 const BlogsPage: React.FC = () => {
   const router = useRouter();
-
-  const handleCardDetails = (blogCardData: IBlogMetadata) => {
-    if (blogCardData) {
-      localStorage.setItem('blogCarddetails', JSON.stringify(blogCardData));
-      router.push('/blogs/blogdetails');
-    }
-  };
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    localStorage.removeItem('blogCarddetails');
+    (async () => {
+      const blogsResponse = await getBlogPosts();
+      if (blogsResponse && blogsResponse[0]) {
+        setBlogs(blogsResponse);
+      }
+    })();
   }, []);
 
   return (
@@ -38,19 +38,24 @@ const BlogsPage: React.FC = () => {
             <div className='container'>
               <>
                 <div className='row hidden-md-up'>
-                  {blogData.map((item) => {
+                  {blogs.map((blog: any) => {
+                    blog.excerpt.rendered =
+                      blog.excerpt.rendered.length > 360
+                        ? blog.excerpt.rendered.slice(0, 357) + '...'
+                        : blog.excerpt.rendered;
                     return (
                       <>
                         <Blogcards
-                          img={item.img}
-                          type={item.type}
-                          date={item.date}
-                          blogHeader={item.blogHeader}
-                          blogDescription={item.blogDescription}
-                          authorProfilePic={item.authorProfilePic}
-                          authorName={item.authorName}
-                          item={item}
-                          handleCardDetails={handleCardDetails}
+                          img={blog.jetpack_featured_media_url}
+                          type='instagram'
+                          date={new Date(blog.date).toDateString().slice(4)}
+                          blogHeader={blog.title.rendered}
+                          blogDescription={blog.excerpt.rendered}
+                          // authorProfilePic={blog.authorProfilePic}
+                          authorName={'VVSLikes'}
+                          slug={blog.slug}
+                          // item={item}
+                          // handleCardDetails={handleCardDetails}
                         />
                       </>
                     );

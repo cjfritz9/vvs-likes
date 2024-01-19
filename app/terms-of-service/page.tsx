@@ -20,7 +20,7 @@ const TermsOfServicePage = () => {
                   color: '#02111B'
                 }}
               >
-                Terms & Condition
+                Terms & Conditions
               </h1>
               <p
                 className='fw-normal'

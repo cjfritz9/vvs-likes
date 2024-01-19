@@ -3,7 +3,7 @@ require('dotenv').config();
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [toRemotePattern(process.env.IG_CMS_IMAGE_PATTERN)]
+    remotePatterns: [toRemotePattern(process.env.IG_CMS_IMAGE_PATTERN), toRemotePattern('https://vvslikescom.files.wordpress.com/**')]
   },
   i18n: {
     locales: ['en-US'],

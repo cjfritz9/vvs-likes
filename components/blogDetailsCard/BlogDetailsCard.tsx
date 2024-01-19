@@ -2,20 +2,20 @@ import Image from "next/image";
 import "@/styles/BlogDetailsCard.css";
 
 function BlogDetailsCard() {
-  let blogDetailsData;
-  const blogCardDetails = localStorage.getItem("blogCarddetails");
+  // let blogDetailsData;
+  // const blogCardDetails = localStorage.getItem("blogCarddetails");
 
-  try {
-    if (blogCardDetails) {
-      blogDetailsData = JSON.parse(blogCardDetails);
-    }
-  } catch (error) {
-    console.error("JSON.parse error", error);
-  }
+  // try {
+  //   if (blogCardDetails) {
+  //     blogDetailsData = JSON.parse(blogCardDetails);
+  //   }
+  // } catch (error) {
+  //   console.error("JSON.parse error", error);
+  // }
 
   return (
     <div className="blog-details-card">
-      <Image src={blogDetailsData.img} alt="Blog style" style={{ borderRadius: "10px" }} />
+      {/* <Image src={blogDetailsData.img} alt="Blog style" style={{ borderRadius: "10px" }} /> */}
       <div className="blog-details-tray">
         <div>
           &#128197; <p>30 Aug 2023</p>
@@ -30,7 +30,7 @@ function BlogDetailsCard() {
 
       <div className="blogDetails-section1">
         <div className="blog-details-card-heading">
-          <h1>{blogDetailsData?.blogHeader}</h1>
+          {/* <h1>{blogDetailsData?.blogHeader}</h1> */}
         </div>
 
         <p>

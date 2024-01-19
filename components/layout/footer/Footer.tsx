@@ -157,7 +157,7 @@ const Footer = () => {
         <div style={{ paddingTop: '12px', textAlign: 'center' }}>
           <p style={{ fontSize: '12px', color: '#DCDCDC' }}>
             © 2023 VVSLikes.com. All Rights Reserved.{' '}
-            <a style={{ color: '#DCDCDC' }} href='/terms-conditions'>
+            <a style={{ color: '#DCDCDC' }} href='/terms-of-service'>
               Terms of Service
             </a>{' '}
             /{' '}
