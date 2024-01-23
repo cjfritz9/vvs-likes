@@ -15,6 +15,7 @@ interface IProps {
   authorProfilePic?: any;
   authorName: any;
   slug: string;
+  prefetch: boolean;
 }
 
 function Blogcards(props: IProps) {
@@ -22,7 +23,11 @@ function Blogcards(props: IProps) {
   const item = props.item;
   return (
     <div className='blog-card col-sm-12 col-lg-4' style={{ cursor: 'pointer' }}>
-      <Link href={`/blogs/${props.slug}`} style={{ textDecoration: 'none' }}>
+      <Link
+        prefetch={props.prefetch}
+        href={`/blogs/${props.slug}`}
+        style={{ textDecoration: 'none' }}
+      >
         <div className='card'>
           <Image
             src={props.img}
@@ -70,7 +75,7 @@ function Blogcards(props: IProps) {
                   alt='Photo of Author'
                 />
               )}
-              <p>By {props.authorName}</p>
+              <p className='tw-ml-2 tw-my-4'>{props.authorName}</p>
             </div>
           </div>
         </div>

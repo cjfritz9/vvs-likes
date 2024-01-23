@@ -34,7 +34,7 @@ p.card-date {
 }
 .blog-card .blog-type-container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 60px;
 }
 

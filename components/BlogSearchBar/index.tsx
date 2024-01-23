@@ -69,7 +69,7 @@ const BlogSearchBar: React.FC = () => {
   const noResults = blogs[0] && blogs[0].title.rendered === 'No Results';
 
   return (
-    <div className='tw-form-control tw-hidden lg:tw-inline-block tw-w-full'>
+    <div className='tw-form-control tw-w-full'>
       <div className='tw-relative'>
         {isSearching && (
           <div className='tw-loading tw-loading-spinner tw-loading-md tw-text-accent tw-absolute tw-right-8 tw-top-3' />

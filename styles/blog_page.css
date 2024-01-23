@@ -1,6 +1,8 @@
 .wp-blog {
   display: flex;
   flex-direction: column;
+  text-align: left;
+  gap: 16px;
 }
 
 .wp-block-image {
@@ -11,11 +13,28 @@
 
 .wp-block-heading {
   margin: 1rem 0rem;
+  font-size: 32px;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+h3 {
+  font-weight: 700 !important;
 }
 
 li {
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
 }
 
 ol {

@@ -1,7 +1,6 @@
 import { getBlogPostBySlug } from '@/app/api/requests';
 import WPBlogPanel from '@/components/wp-blog-panel';
 import WPBlogContent from '@/components/wp_blog_content';
-import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 import React from 'react';
 
@@ -11,12 +10,10 @@ export const generateMetadata = async ({
   params: { slug: string };
 }) => {
   const { slug } = params;
-  const headersList = headers();
-  const fullUrl = headersList.get('referer')!;
-  const baseUrl = fullUrl.slice(0, fullUrl.indexOf('/blogs'));
-  const blog = await getBlogPostBySlug(baseUrl, slug);
+
+  const blog = await getBlogPostBySlug(slug);
   if (!blog) {
-    notFound();
+    return notFound();
   }
   return {
     title: blog.title.rendered.replaceAll('&nbsp;', ' ') + ' - VVSLikes'
@@ -29,10 +26,8 @@ const BlogPage: React.FC<any> = async ({
   params: { slug: string };
 }) => {
   const { slug } = params;
-  const headersList = headers();
-  const fullUrl = headersList.get('referer')!;
-  const baseUrl = fullUrl.slice(0, fullUrl.indexOf('/blogs'));
-  const blog = await getBlogPostBySlug(baseUrl, slug);
+  const blog = await getBlogPostBySlug(slug);
+
   return (
     <div className='container'>
       <div
@@ -45,12 +40,12 @@ const BlogPage: React.FC<any> = async ({
         }}
       >
         <p style={{ fontSize: '36px', fontWeight: 600 }}>Blog Details</p>
-        <p
+        <span
           dangerouslySetInnerHTML={{ __html: blog.excerpt.rendered }}
           style={{ maxWidth: '692px', color: '#6B7175' }}
         />
       </div>
-      <div className='tw-flex tw-gap-8'>
+      <div className='tw-flex tw-flex-col-reverse lg:tw-flex-row tw-gap-8'>
         <WPBlogPanel blogData={blog} />
         <WPBlogContent blogContent={blog.content.rendered} />
       </div>

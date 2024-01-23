@@ -5,7 +5,7 @@ export const GET = async (
   { params }: { params: { slug: string } }
 ) => {
   const response = await fetch(
-    `https://public-api.wordpress.com/wp/v2/sites/vvslikescom.wordpress.com/posts?slug=${params.slug}&_fields=author,excerpt,date,title,content,meta,tags`
+    `https://public-api.wordpress.com/wp/v2/sites/vvslikescom.wordpress.com/posts?slug=${params.slug}&_embed&_fields=slug,excerpt,date,title,content,meta,tags,_links,_embedded`
   );
   const result = await response.json();
 
