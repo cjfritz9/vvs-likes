@@ -32,8 +32,8 @@ function Blogcards(props: IProps) {
           <Image
             src={props.img}
             height={316}
-            width={390}
-            className='card-img-top tw-h-[316px] tw-w-[390px] tw-object-cover tw-object-center'
+            width={696}
+            className='card-img-top tw-h-[316px] tw-w-full tw-object-cover tw-object-center'
             alt='blog card image'
           />
           <div className='card-body' style={{ padding: '1rem' }}>

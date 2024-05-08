@@ -16,7 +16,7 @@ const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Buy Instagram Likes: Get 10-50 Real IG Likes FREE⋆Instant',
+    default: 'Buy Instagram Likes Trial: FREE 10-50 Real IG Likes⋆Instant',
     template: '%s - VVSLikes'
   },
   description:

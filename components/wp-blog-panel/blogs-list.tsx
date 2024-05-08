@@ -8,6 +8,9 @@ interface IProps {
 }
 
 const WPBlogsList: React.FC<IProps> = async ({ currentBlogSlug, tags }) => {
+  if (!tags) {
+    tags = '831818';
+  }
   const blogs = await getBlogPostsByTags(tags);
 
   return blogs.map(

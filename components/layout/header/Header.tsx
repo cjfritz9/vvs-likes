@@ -8,6 +8,7 @@ import Image from 'next/image';
 import useIsClient from '@/lib/hooks/useIsClient';
 import '@/styles/header.css';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const HeaderBar = () => {
   const [state, setState] = useState({
@@ -173,7 +174,8 @@ const HeaderBar = () => {
                   </a>
                 )}
                 {location !== '/' && (
-                  <a
+                  <Link
+                    prefetch
                     className={state.aboutLinkClass}
                     href='/blogs'
                     onClick={() =>
@@ -183,7 +185,7 @@ const HeaderBar = () => {
                     }
                   >
                     Blog
-                  </a>
+                  </Link>
                 )}
 
                 <a

@@ -226,7 +226,7 @@ export async function verifyEmail(req: NextRequest) {
   try {
     await ValidationService.createSMMRajaOrder({
       action: 'add',
-      service: 5504,
+      service: 5057,
       link: postUrl,
       quantity: 10
     });
